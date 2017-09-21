@@ -1,13 +1,20 @@
 Package: fishpals
 Type: Package
-Title: A Package of Fish Color Palettes for Plots
+Title: Species-specific Fish Color Palettes for Plots
 Version: 0.1.0
 Author: Myfanwy Johnston
 Maintainer: Myfanwy Johnston <myfanwy.johnston@fishsciences.net>
-Description: Modeled after Karthik Ram's wesanderson palettes package, this package provides species-specific 
-    color palettes generated from pictures of fish that Cramer Fish Sciences has worked with in the past.  Since CFS
-    works mostly with North American, northwestern fish species, we're talking about a lot of greens, browns, and grays.
-    But we're open to adding some tropical palettes.
+Description: Modeled after Karthik Ram's 'wesanderson' palettes package, methods are
+    provided to create species-specific color palettes generated from pictures of fish 
+    that 'Cramer Fish Sciences' ('CFS') has worked with in the past. Since 'CFS' works 
+    mostly with North American, northwestern fish species, we're talking about a lot of 
+    greens, browns, and grays. But we're open to adding some tropical palettes.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Suggests: testthat, ggplot2, vdiffr, covr
+Imports: grDevices
+License: MIT + file LICENSE
+URL: https://github.com/fishsciences/fishpals
+BugReports: https://github.com/fishsciences/fishpals/issues
+Depends: R (>= 3.0.0)

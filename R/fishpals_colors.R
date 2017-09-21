@@ -1,6 +1,8 @@
-
-# Fish palettes list - still growing
+#' Fish palettes list - still growing
+#'
+#' @keywords internal
 fish_pals <- list(
+
   juvsteel = c("#455121", "#030C00", "#86985A", "#9DA88A","#45604F", # olives and blacks
                "#86985A", "#1E2D04", "#242B01", "#ABB789", "#4F5B47",
                "#79493D", "#693B3E", "#B98B7B", "#C09D89", "#97735D", "#C09D89", # pinks and tans
@@ -19,6 +21,8 @@ fish_pals <- list(
 
 )
 
-# Cramer Fish Sciences Palette
+#' Cramer Fish Sciences Palette
+#'
+#' @keywords internal
 cfs <- c("#7D592E", "#002E51", "#1372AA", # <- that one is the CFS blue
          "#041521", "#676D70")
