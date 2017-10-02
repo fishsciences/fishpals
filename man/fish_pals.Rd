@@ -3,12 +3,12 @@
 \docType{data}
 \name{fish_pals}
 \alias{fish_pals}
-\title{Fish palettes list - still growing}
+\title{Fish palettes Core Colors list - still growing}
 \format{An object of class \code{list} of length 3.}
 \usage{
 fish_pals
 }
 \description{
-Fish palettes list - still growing
+Fish palettes Core Colors list - still growing
 }
 \keyword{internal}

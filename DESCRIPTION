@@ -2,7 +2,7 @@ Package: fishpals
 Type: Package
 Title: Species-specific Fish Color Palettes for Plots
 Version: 0.1.0
-Author: Myfanwy Johnston
+Author: Myfanwy Johnston, Bob Rudis
 Maintainer: Myfanwy Johnston <myfanwy.johnston@fishsciences.net>
 Description: Modeled after Karthik Ram's 'wesanderson' palettes package, methods are
     provided to create species-specific color palettes generated from pictures of fish 

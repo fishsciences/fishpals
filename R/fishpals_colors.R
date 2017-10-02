@@ -1,23 +1,25 @@
-#' Fish palettes list - still growing
+#' Fish palettes Core Colors list - still growing
 #'
 #' @keywords internal
 fish_pals <- list(
 
-  juvsteel = c("#455121", "#030C00", "#86985A", "#9DA88A","#45604F", # olives and blacks
-               "#86985A", "#1E2D04", "#242B01", "#ABB789", "#4F5B47",
-               "#79493D", "#693B3E", "#B98B7B", "#C09D89", "#97735D", "#C09D89", # pinks and tans
-               "#EAB8B1", "#865848", "#58231F", "#FFCBC3", "#58231F",
-               "#5F737E", "#263A41", "#091C2A", "#2E4147", "#666B67", "#77848C" # grays, blues, silvers
+  juvsteel = c("#A3C595" , #laurel green
+               "#BA8F78" , #pale taupe
+               "#5D5360", #Davy's grey
+               "#1c240d" , #dark jungle green
+               "#784039" #medium tuscan red
   ),
 
 
-  adultsteel = c("#545835", "#D8DFD8", "#827843", "#534C44", # greens and browns
-                 "#4F6165", "#6B6D6A", "#F2E8E7", "#474E56", "#F0F7F0", "#C5C5C5", "#5A686B",
-                 "#A4AFB3", "#FBFFFA",  "#DDE4DC", "#868F8C", # silvers, grays, whites )
-                 "#C55C59", "#EF8E61", "#D35546" ) , # reds and oranges
+  adultsteel = c("#504C41", #dark liver
+                 "#E2704D", #light red ochre
+                 "#B8BABD", #gray
+                 "#4B5859", #feldgrau
+                 "#707239"), #spanish bistre
 
 
-  adultchinook = c("#E02F3D", "#A93553", "#767448", "#9B9979", "#FBB7C0", "#336F6D")
+  adultchinook = c( "#BA1D30",              #  "#9e1a29", #"#A93553",
+                   "#767448", "#3B3239", "#FBB7C0" ,"#336F6D")
 
 )
 
