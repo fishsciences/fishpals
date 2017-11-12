@@ -12,8 +12,9 @@
 #' viewpals(adultchinook)
 
 viewpals <- function(palette) { # where palette is not in quotes
+  par(lty=0)
   temp <- c(5,7,6,4,8)
-  barplot(temp, col = palette)
+  barplot(temp, col = palette, fg = "black", axes = FALSE)
 }
 
 

@@ -3,7 +3,7 @@
 #' @md
 #' @param name The name of the color palette you want to use from the fishpals_colors list.
 #'        Options are "`juvsteel`" for juvenile steelhead, "`adultsteel`" for adult
-#'        steelhead, and "`adultchinook`" for adult Chinook salmon.
+#'        steelhead, "`adultchinook`" for adult Chinook salmon, and "`greensunfish`" for green sunfish.
 #' @param n The number of colors needed
 #' @param type Either discrete or continuous.
 #'
@@ -12,10 +12,11 @@
 #' library(ggplot2)
 #' ggplot(iris) +
 #' geom_point(aes(x = Sepal.Width, y = Petal.Width, color = factor(Petal.Width)), size = 3) +
-#' scale_color_manual(values = fishpal("adultchinook", 22, type = "continuous")) + theme_void()
-fishpal <- function (name = c("juvsteel", "adultsteel", "adultchinook"), n,
-                     type = c("discrete", "continuous")) {
-
+#' scale_color_manual(values = fishpal("adultchinook", n = length(unique(iris$Petal.Width)), type = "continuous")) + theme_void()
+#'
+fishpal <- function (name = c("juvsteel", "adultsteel", "adultchinook",
+                              "greensunfish"), n,
+                     type = "continuous") {
   pal_name <- match.arg(name, names(fish_pals)) # this makes the named list the auth source
   type <- match.arg(type, c("discrete", "continuous"))
 
