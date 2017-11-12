@@ -26,11 +26,13 @@ Quick-start:
     scale_color_manual(values = 
                        fishpal("greensunfish", 
                                       length(unique(iris$Petal.Width)))) +  theme_void()
-                     
+![ggplot_ex](https://github.com/fishsciences/fishpals/blob/master/fishphotos/ggplot_example.jpeg)
+
  ##### base plotting:                    
     plot(Petal.Width ~ Sepal.Width, data = iris, pch = 16, cex = 1.5,
      col = fishpal("greensunfish", 
                      length(unique(iris$Petal.Width))))
+![base_ex](https://github.com/fishsciences/fishpals/blob/master/fishphotos/Baseplot_example.jpeg)
 
 Species and life stages
 -----------------------
