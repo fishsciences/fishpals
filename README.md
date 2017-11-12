@@ -9,9 +9,11 @@ Modeled after Karthik Ram's [`wesanderson`](https://CRAN.R-project.org/package=w
 
 Quick-start:
 -----------------------
-`devtools::install_github("fishsciences/fishpals")`
-`library(fishpals)`
-`?fishpal()`
+    devtools::install_github("fishsciences/fishpals")
+
+    library(fishpals)
+
+    ?fishpal()
 
 Species and life stages
 -----------------------
