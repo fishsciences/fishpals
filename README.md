@@ -7,6 +7,12 @@ Species-specific Fish Color Palettes for Plots
 
 Modeled after Karthik Ram's [`wesanderson`](https://CRAN.R-project.org/package=wesanderson) palettes package, methods areprovided to create species-specific color palettes inspired by fish that [Cramer Fish Sciences](http://www.fishsciences.net/) (CFS) has worked with in the past (note, photos below are examples and are not from CFS). Since CFS works mostly with North American, northwestern fish species, we're talking about a lot of greens, browns, and grays. But we're open to adding some tropical palettes.
 
+Quick-start:
+-----------------------
+`devtools::install_github("fishsciences/fishpals")`
+`library(fishpals)`
+`?fishpal()`
+
 Species and life stages
 -----------------------
 
