@@ -14,6 +14,23 @@ Quick-start:
     library(fishpals)
 
     ?fishpal()
+    
+Quick-start:
+-----------------------
+
+##### ggplot2
+    ggplot(iris) +
+    geom_point(aes(x = Sepal.Width, 
+                 y = Petal.Width, 
+                 color = factor(Petal.Width)), size = 3.5, show.legend = F) +
+    scale_color_manual(values = 
+                       fishpal("greensunfish", 
+                                      length(unique(iris$Petal.Width)))) +  theme_void()
+                     
+ ##### base plotting:                    
+    plot(Petal.Width ~ Sepal.Width, data = iris, pch = 16, cex = 1.5,
+     col = fishpal("greensunfish", 
+                     length(unique(iris$Petal.Width))))
 
 Species and life stages
 -----------------------
