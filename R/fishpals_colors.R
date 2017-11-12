@@ -19,9 +19,13 @@ fish_pals <- list(
 
 
   adultchinook = c( "#BA1D30",              #  "#9e1a29", #"#A93553",
+<<<<<<< HEAD
                    "#767448", "#3B3239", "#FBB7C0" ,"#336F6D"),
 
   greensunfish = c("#4EC4B8", "#8C7A4B", "#F1B24A", "#636271", "#2D3040")
+=======
+                   "#767448", "#3B3239", "#FBB7C0" ,"#336F6D")
+>>>>>>> d7dfac191c7e3a5da4fb844335688eb6095f0bf0
 
 )
 

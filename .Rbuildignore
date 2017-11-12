@@ -5,4 +5,7 @@
 ^\.travis\.yml$
 ^codecov\.yml$
 ^appveyor\.yml$
+<<<<<<< HEAD
 ^data-raw$
+=======
+>>>>>>> d7dfac191c7e3a5da4fb844335688eb6095f0bf0

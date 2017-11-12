@@ -12,9 +12,14 @@
 #' viewpals(adultchinook)
 
 viewpals <- function(palette) { # where palette is not in quotes
+<<<<<<< HEAD
   par(lty=0)
   temp <- c(5,7,6,4,8)
   barplot(temp, col = palette, fg = "black", axes = FALSE)
+=======
+  temp <- c(5,7,6,4,8)
+  barplot(temp, col = palette)
+>>>>>>> d7dfac191c7e3a5da4fb844335688eb6095f0bf0
 }
 
 
