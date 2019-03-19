@@ -25,4 +25,5 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) +
     geom_point(size = 4, alpha = .6) +
     scale_color_cfs(discrete = FALSE, palette = "genidaqs") +
   theme_pub()
+
 }

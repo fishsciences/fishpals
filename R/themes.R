@@ -18,7 +18,7 @@
 #'     geom_point(size = 4, alpha = .6) +
 #'     scale_color_cfs(discrete = FALSE, palette = "genidaqs") +
 #'   theme_pub()
-
+#'
 theme_report <- function () {
 
   theme_minimal(base_size=12, base_family="Avenir") %+replace%
@@ -35,7 +35,7 @@ theme_report <- function () {
 }
 
 #'@export
-
+#'
 theme_pres <- function () {
 
   theme_minimal(base_size=14, base_family="Avenir") %+replace%
@@ -43,10 +43,9 @@ theme_pres <- function () {
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),
       legend.key = element_rect(fill="transparent", colour=NA),
-      panel.grid.major = element_line("grey75", size = rel(0.5)),
-      panel.grid.minor = element_line("grey75",
-        size = rel(0.15)),
 
+     panel.grid.major = element_line("grey60", size = rel(0.75)),
+      panel.grid.minor = element_line("grey60",size = rel(0.5)),
       complete = TRUE
     )
 }

@@ -26,7 +26,7 @@ Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderso
     ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
        geom_point(size = 4, alpha = 0.85, aes(color = Species), show.legend = FALSE) +
        scale_color_fishpals("greensunfish") +
-       theme_report()
+       theme_pres()
        
 ![ggplot2_example](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/ggplot2_example.jpeg)
        

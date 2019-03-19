@@ -22,7 +22,7 @@ library(ggplot2)
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
    geom_point(size = 4, alpha = 0.85, aes(color = Species), show.legend = FALSE) +
    scale_color_fishpals("greensunfish") +
-   theme_report()
+   theme_pres()
    
 ```
 
