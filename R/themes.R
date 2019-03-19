@@ -44,7 +44,7 @@ theme_pres <- function () {
       legend.background = element_rect(fill="transparent", colour=NA),
       legend.key = element_rect(fill="transparent", colour=NA),
 
-     panel.grid.major = element_line("grey60", size = rel(0.75)),
+     panel.grid.major = element_line("grey60"),
       panel.grid.minor = element_line("grey60",size = rel(0.5)),
       complete = TRUE
     )
