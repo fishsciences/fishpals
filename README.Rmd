@@ -16,7 +16,19 @@ knitr::opts_chunk$set(
 
 Species-specific Fish Color Palettes for Plots
 
-Modeled after Karthik Ram's [`wesanderson`](https://CRAN.R-project.org/package=wesanderson) palettes package, methods areprovided to create species-specific color palettes generated from pictures of fish that [Cramer Fish Sciences](http://www.fishsciences.net/) (CFS) has worked with in the past. Since CFS works mostly with North American, northwestern fish species, we're talking about a lot of greens, browns, and grays. But we're open to adding some tropical palettes.
+Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderson` package, this package provides species-specific color palettes (generated from pictures of fish that 'Cramer Fish Sciences' ('CFS') has worked with in the past), and some lightweight ggplot2 themes. Since 'CFS' works mostly with North American, northwestern fish species, we're talking about a lot of greens, browns, and grays. But we're open to adding some tropical palettes.
+
+## Usage
+
+    devtools::install_github('fishciences/fishpals')
+    library(fishpals)
+    library(ggplot2)
+    ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
+       geom_point(size = 4, aes(color = Species), show.legend = FALSE) +
+       scale_color_fishpals("adultchinook") +
+       theme_pub()
+       
+See `?fishpals::themes` for all available themes and `?fishpals::scales` for available `ggplot2` scales. 
 
 ## Species and life stages
 
