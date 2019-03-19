@@ -20,14 +20,16 @@ devtools::install_github('fishciences/fishpals')
 library(fishpals)
 library(ggplot2)
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
-   geom_point(size = 4, aes(color = Species), show.legend = FALSE) +
-   scale_color_fishpals("adultchinook") +
-   theme_pub()
+   geom_point(size = 4, alpha = 0.85, aes(color = Species), show.legend = FALSE) +
+   scale_color_fishpals("greensunfish") +
+   theme_report()
    
 ```
 
-See `?fishpals::themes` for all available themes and `?fishpals::scales`
-for available `ggplot2` scales.
+![ggplot2\_example](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/ggplot2_example.jpeg)
+
+See `?fishpals::theme_report` for all available themes and
+`?fishpals::scale_color_fishpals` for available `ggplot2` scales.
 
 ## Species and life stages
 
