@@ -1,17 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fishpals
-
-Species-specific Fish Color Palettes for Plots
+# fishpals: fish color palettes, themes, and scales (ha\!) for plots
 
 Heavily influenced by Diane Cook’s `ochre` package and Karthik Ram’s
-`wesanderson` package, this package provides species-specific color
-palettes (generated from pictures of fish that ‘Cramer Fish Sciences’
-(‘CFS’) has worked with in the past), and some lightweight ggplot2
-themes. Since ‘CFS’ works mostly with North American, northwestern fish
-species, we’re talking about a lot of greens, browns, and grays. But
-we’re open to adding some tropical palettes.
+`wesanderson` package, this package provides color palettes and some
+lightweight ggplot2 themes. Since Cramer Fish Sciences works mostly with
+North American/northwestern fish species, we’re talking about a lot of
+greens, browns, and grays. But we’re open to adding some tropical
+palettes.
 
 ## Usage
 
@@ -20,7 +17,7 @@ devtools::install_github('fishciences/fishpals')
 library(fishpals)
 library(ggplot2)
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
-   geom_point(size = 4, alpha = 0.85, aes(color = Species), show.legend = FALSE) +
+   geom_point(size = 4.5, aes(color = Species), show.legend = FALSE) +
    scale_color_fishpals("greensunfish") +
    theme_pres()
    
