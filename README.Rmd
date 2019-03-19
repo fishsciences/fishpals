@@ -12,11 +12,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# fishpals
+# fishpals: fish color palettes, themes, and scales (ha!) for plots
 
-Species-specific Fish Color Palettes for Plots
-
-Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderson` package, this package provides species-specific color palettes (generated from pictures of fish that 'Cramer Fish Sciences' ('CFS') has worked with in the past), and some lightweight ggplot2 themes. Since 'CFS' works mostly with North American, northwestern fish species, we're talking about a lot of greens, browns, and grays. But we're open to adding some tropical palettes.
+Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderson` package, this package provides color palettes and some lightweight ggplot2 themes. Since Cramer Fish Sciences works mostly with North American/northwestern fish species, we're talking about a lot of greens, browns, and grays. But we're open to adding some tropical palettes.
 
 ## Usage
 
