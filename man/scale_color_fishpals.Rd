@@ -2,9 +2,17 @@
 % Please edit documentation in R/scales.R
 \name{scale_color_fishpals}
 \alias{scale_color_fishpals}
+\alias{scale_colour_fishpals}
+\alias{scale_fill_fishpals}
 \title{Fishpals scale functions for use in ggplot2 plots}
 \usage{
 scale_color_fishpals(palette = "CFS", discrete = TRUE,
+  reverse = FALSE, ...)
+
+scale_colour_fishpals(palette = "CFS", discrete = TRUE,
+  reverse = FALSE, ...)
+
+scale_fill_fishpals(palette = "CFS", discrete = TRUE,
   reverse = FALSE, ...)
 }
 \arguments{
@@ -20,7 +28,12 @@ scale_color_fishpals(palette = "CFS", discrete = TRUE,
 Fishpals scale functions for use in ggplot2 plots
 }
 \examples{
+library(ggplot2)
+extrafont::loadfonts(quiet=TRUE)
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
  geom_point(size = 4) +
- scale_color_cfs("genidaqs")
+ scale_color_fishpals("genidaqs")
+ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
+geom_bar(stat = "identity") +
+scale_fill_fishpals()
 }

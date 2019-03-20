@@ -2,9 +2,15 @@
 % Please edit documentation in R/themes.R
 \name{theme_report}
 \alias{theme_report}
+\alias{theme_pres}
+\alias{theme_pub}
 \title{Fishpals ggplot2 themes}
 \usage{
 theme_report()
+
+theme_pres()
+
+theme_pub()
 }
 \description{
 lightweight ggplot2 themes for Cramer Fish Sciences and fish lovers alike
@@ -16,14 +22,18 @@ lightweight ggplot2 themes for Cramer Fish Sciences and fish lovers alike
 }
 }
 \examples{
+library(ggplot2)
+
+extrafont::loadfonts(quiet=TRUE)
+
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
-   geom_point(size = 4) +
-   scale_color_cfs("genidaqs") +
-    theme_report()
+  geom_point(size = 4) +
+  scale_color_fishpals("genidaqs") +
+  theme_report()
 
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) +
-    geom_point(size = 4, alpha = .6) +
-    scale_color_cfs(discrete = FALSE, palette = "genidaqs") +
-  theme_pub()
+ geom_point(size = 4, alpha = .6) +
+ scale_color_fishpals(discrete = FALSE, palette = "genidaqs") +
+ theme_pub()
 
 }

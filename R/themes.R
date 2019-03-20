@@ -9,15 +9,19 @@
 #'}
 #'@export
 #'@examples
-#'ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
-#'    geom_point(size = 4) +
-#'    scale_color_cfs("genidaqs") +
-#'     theme_report()
+#' library(ggplot2)
+#'
+#' extrafont::loadfonts(quiet=TRUE)
+#'
+#' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
+#'   geom_point(size = 4) +
+#'   scale_color_fishpals("genidaqs") +
+#'   theme_report()
 #'
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) +
-#'     geom_point(size = 4, alpha = .6) +
-#'     scale_color_cfs(discrete = FALSE, palette = "genidaqs") +
-#'   theme_pub()
+#'  geom_point(size = 4, alpha = .6) +
+#'  scale_color_fishpals(discrete = FALSE, palette = "genidaqs") +
+#'  theme_pub()
 #'
 theme_report <- function () {
 
@@ -34,8 +38,8 @@ theme_report <- function () {
     )
 }
 
-#'@export
-#'
+#' @rdname theme_report
+#' @export
 theme_pres <- function () {
 
   theme_minimal(base_size=14, base_family="Avenir") %+replace%
@@ -50,8 +54,8 @@ theme_pres <- function () {
     )
 }
 
-#'@export
-#'
+#' @rdname theme_report
+#' @export
 theme_pub <- function () {
 
   theme_minimal(base_size=10.5, base_family="Avenir") %+replace%

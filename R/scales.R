@@ -8,9 +8,11 @@
 #'
 #' @export
 #' @examples
+#' library(ggplot2)
+#' extrafont::loadfonts(quiet=TRUE)
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 #'  geom_point(size = 4) +
-#'  scale_color_cfs("genidaqs")
+#'  scale_color_fishpals("genidaqs")
 
 scale_color_fishpals <- function(palette = "CFS", discrete = TRUE, reverse = FALSE, ...) {
 
@@ -23,15 +25,13 @@ scale_color_fishpals <- function(palette = "CFS", discrete = TRUE, reverse = FAL
   }
 }
 
-#' @rdname scale_fill_fishpals
-#'
-#' @param palette Choose from `fishpals_pals` list
-#' @param discrete if FALSE, continuous color palette will be generated
-#' @param reverse if TRUE, the direction of colors is reversed
-#' @param ... arguments passed on to `ggplot2::discrete_scale()`
-#'
+#' @rdname scale_color_fishpals
 #' @export
-#' @example
+scale_colour_fishpals <- scale_color_fishpals
+
+#' @rdname scale_color_fishpals
+#' @export
+#' @examples
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 #' geom_bar(stat = "identity") +
 #' scale_fill_fishpals()

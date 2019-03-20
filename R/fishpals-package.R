@@ -10,6 +10,10 @@
 #' @md
 #' @name fishpals
 #' @docType package
+#' @keywords internal
 #' @author Myfanwy Johnston <myfanwy.johnston@@fishsciences.net>
-#' @importFrom grDevices colorRampPalette
+#' @importFrom grDevices colorRampPalette pdfFonts postscriptFonts
+#' @importFrom ggplot2 theme theme_minimal rel %+replace% element_blank element_rect
+#' @importFrom ggplot2 element_line discrete_scale scale_color_gradientn ggplot aes
+#' @importFrom graphics barplot par
 NULL

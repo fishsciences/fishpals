@@ -43,6 +43,9 @@
 #  geom_bar(stat = "identity") +
 #  scale_fill_fishpals()
 library(ggplot2)
+
+extrafont::loadfonts(quiet=TRUE)
+
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
      geom_point(size = 4, aes(color = Species), show.legend = FALSE) +
      scale_color_fishpals("adultchinook") +

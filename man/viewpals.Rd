@@ -7,7 +7,8 @@
 viewpals(palette)
 }
 \arguments{
-\item{name}{The unquoted name of the color palette you want to use from the fishpals_colors list.
+\item{palette}{The bare/unquoted name or string of the color palette you want
+to use from the fishpals_colors list.
 Options are \code{juvsteel} for juvenile steelhead, \code{adultsteel} for adult
 steelhead, and \code{adultchinook} for adult Chinook salmon.}
 }
@@ -16,6 +17,7 @@ Quick preview of the core colors in each fish palette from \code{fishpals()}.
 }
 \examples{
 viewpals(adultsteel)
+viewpals("adultsteel")
 viewpals(juvsteel)
 viewpals(adultchinook)
 }
