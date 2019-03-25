@@ -16,6 +16,7 @@ palettes.
 devtools::install_github('fishciences/fishpals')
 library(fishpals)
 library(ggplot2)
+
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
    geom_point(size = 4.5, aes(color = Species), show.legend = FALSE) +
    scale_color_fishpals("greensunfish") +
@@ -28,19 +29,19 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
 See `?fishpals::theme_report` for all available themes and
 `?fishpals::scale_color_fishpals` for available `ggplot2` scales.
 
-## Species and life stages
+## Example species and life stage color palette sources:
 
 Juvenile
-steelhead:
+steelhead
 
 ![juvenilesteelehad2](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/juvenile_steelhead2.jpg)
 
 Adult Chinook
-salmon:
+salmon
 
 ![adultchinook](https://c1.staticflickr.com/9/8614/30177831831_4194c59228_b.jpg)
 
 Green
-sunfish:
+sunfish
 
 ![greensunfish](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/green_sunfish.jpg)
