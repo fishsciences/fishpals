@@ -23,4 +23,3 @@ Function that extracts hex codes form the fishpals_colors vector by name
 get_fishpals_cols()
 get_fishpals_cols("chinook red")
 }
-\keyword{internal}
