@@ -11,7 +11,7 @@
 
   fnt <- extrafont::fonttable()
   if (!any(grepl("Avenir", fnt$FamilyName))) {
-    packageStartupMessage("NOTE: The Avenir font is required to use these themes.")
+    packageStartupMessage("NOTE: The Avenir font is required to use the full functionality of these themes.")
   } # nocov end
 
 }
