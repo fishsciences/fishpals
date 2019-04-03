@@ -25,7 +25,7 @@
 #'
 theme_report <- function () {
 
-  theme_minimal(base_size=12, base_family="Avenir") %+replace%
+  theme_minimal(base_size=12, base_family="AvantGarde") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),
@@ -42,7 +42,7 @@ theme_report <- function () {
 #' @export
 theme_pres <- function () {
 
-  theme_minimal(base_size=14, base_family="Avenir") %+replace%
+  theme_minimal(base_size=14, base_family="AvantGarde") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),
@@ -58,7 +58,7 @@ theme_pres <- function () {
 #' @export
 theme_pub <- function () {
 
-  theme_minimal(base_size=10.5, base_family="Avenir") %+replace%
+  theme_minimal(base_size=10.5, base_family="AvantGarde") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),
