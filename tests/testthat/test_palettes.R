@@ -50,6 +50,7 @@ extrafont::loadfonts(quiet=TRUE)
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
        geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
        scale_color_fishpals("greensunfish") +
-       theme_pres()
+       fishpals::theme_pres() +
+  labs(title = "this is the title")
 
-#ggsave("fishphotos/ggplot2_example.jpeg", height = 3, width = 5)
+ggsave("fishphotos/ggplot2_example.jpeg", height = 3, width = 5)
