@@ -51,8 +51,8 @@ theme_pres <- function () {
       axis.title.y = element_text(vjust = 1.05, angle = 90),
       axis.title.x = element_text(hjust = 0.975),
       plot.margin = unit(c(0.75, 0.75, 0.5, 0.75), "cm"),
-     panel.grid.major = element_line("grey55", size = rel(0.45)),
-      panel.grid.minor = element_line("grey60",size = rel(0.15)),
+     panel.grid.major = element_line("grey55", size = rel(0.25)),
+      panel.grid.minor = element_line("grey60",size = rel(0.05)),
       complete = TRUE
     )
 }
