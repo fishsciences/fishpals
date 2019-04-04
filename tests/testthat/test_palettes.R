@@ -51,6 +51,8 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
        geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
        scale_color_fishpals("greensunfish") +
        fishpals::theme_pres() +
+      theme(axis.text = element_text(size = 9),
+            axis.title = element_text(size = 10)) +
   labs(title = "this is the title")
 
-ggsave("fishphotos/ggplot2_example.jpeg", height = 3, width = 5)
+ggsave("fishphotos/ggplot2_example.jpeg", height = 3.5, width = 5)
