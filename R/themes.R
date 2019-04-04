@@ -25,7 +25,7 @@
 #'
 theme_report <- function () {
 
-  theme_minimal(base_size=12, base_family="AvantGarde") %+replace%
+  theme_minimal(base_size=12, base_family="Helvetica") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),
@@ -33,6 +33,7 @@ theme_report <- function () {
       panel.grid.major = element_line("grey75", size = rel(0.5)),
       panel.grid.minor = element_line("grey75",
         size = rel(0.15)),
+        axis.line = element_line(size = 0.5),
 
       complete = TRUE
     )
@@ -42,14 +43,14 @@ theme_report <- function () {
 #' @export
 theme_pres <- function () {
 
-  theme_minimal(base_size=14, base_family="AvantGarde") %+replace%
+  theme_minimal(base_size=14, base_family="Helvetica") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),
       legend.key = element_rect(fill="transparent", colour=NA),
 
-     panel.grid.major = element_line("grey55", size = rel(0.85)),
-      panel.grid.minor = element_line("grey60",size = rel(0.5)),
+     panel.grid.major = element_line("grey55", size = rel(0.45)),
+      panel.grid.minor = element_line("grey60",size = rel(0.15)),
       complete = TRUE
     )
 }
@@ -58,7 +59,7 @@ theme_pres <- function () {
 #' @export
 theme_pub <- function () {
 
-  theme_minimal(base_size=10.5, base_family="AvantGarde") %+replace%
+  theme_minimal(base_size=10.5, base_family="Helvetica") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),

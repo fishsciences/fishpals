@@ -23,7 +23,7 @@ Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderso
     library(ggplot2)
     
     ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
-       geom_point(size = 4.5, aes(color = Species), show.legend = FALSE) +
+       geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
        scale_color_fishpals("greensunfish") +
        theme_pres()
        

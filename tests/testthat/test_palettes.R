@@ -46,9 +46,10 @@ library(ggplot2)
 
 extrafont::loadfonts(quiet=TRUE)
 
+# recreate plot in README
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
-     geom_point(size = 4, aes(color = Species), show.legend = FALSE) +
-     scale_color_fishpals("adultchinook") +
-     theme_pub()
+       geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
+       scale_color_fishpals("greensunfish") +
+       theme_pres()
 
-scales::show_col(fishpals_pals[["CFS"]])
+#ggsave("fishphotos/ggplot2_example.jpeg", height = 3, width = 5)
