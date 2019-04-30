@@ -33,7 +33,8 @@ theme_report <- function () {
       panel.grid.major = element_line("grey75", size = rel(0.5)),
       panel.grid.minor = element_line("grey75",
         size = rel(0.15)),
-        axis.line = element_line(size = 0.5),
+        axis.line = element_line(size = 0.4),
+      axis.text = element_text(size = 13),
 
       complete = TRUE
     )
