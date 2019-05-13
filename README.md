@@ -13,7 +13,7 @@ palettes.
 ## Usage
 
 ``` 
-devtools::install_github('fishciences/fishpals')
+devtools::install_github('fishsciences/fishpals')
 library(fishpals)
 library(ggplot2)
 
