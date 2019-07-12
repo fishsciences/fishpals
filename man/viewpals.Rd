@@ -2,22 +2,23 @@
 % Please edit documentation in R/viewpals.R
 \name{viewpals}
 \alias{viewpals}
-\title{Quick preview of the core colors in each fish palette from \code{fishpals()}.}
+\title{Show colors associated with a palette - adapted from the [`scales` package](https://cran.r-project.org/web/packages/scales/index.html) for use with fishpals}
 \usage{
-viewpals(palette)
+viewpals(fishpal, labels=TRUE, borders = NULL, cex_label = 1)
 }
 \arguments{
-\item{palette}{The bare/unquoted name or string of the color palette you want
-to use from the fishpals_colors list.
-Options are \code{juvsteel} for juvenile steelhead, \code{adultsteel} for adult
-steelhead, and \code{adultchinook} for adult Chinook salmon.}
+\item{fishpal}{a string matching one of the fishpals color palettes (see fishpals::fish_pals for the full list); default is "CFS"}
+
+\item{labels}{boolean, whether to show the hexadecimal representation of the colours in each tile}
+
+\item{borders}{colour of the borders of the tiles; matches the border argument of `graphics::rect()`. The default means par("fg"). Use border = NA to omit borders.}
+
+\item{cex_label}{size of printed labels, works the same as cex parameter of plot()}
 }
 \description{
-Quick preview of the core colors in each fish palette from \code{fishpals()}.
+A quick and dirty way to view fishpalettes
 }
 \examples{
-viewpals(adultsteel)
-viewpals("adultsteel")
-viewpals(juvsteel)
-viewpals(adultchinook)
+viewpals("genidaqs")
+viewpals("adultchinook")
 }

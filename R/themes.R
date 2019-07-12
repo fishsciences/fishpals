@@ -24,6 +24,7 @@
 #'  theme_pub()
 #'
 theme_report <- function () {
+<<<<<<< HEAD
   theme_minimal(base_size = 12, base_family = "Geneva") %+replace%
     theme(
       panel.background  = element_blank(),
@@ -38,7 +39,8 @@ theme_report <- function () {
       strip.background = element_rect(fill = "gray95",
                                       color = "transparent",
                                       size = rel(0.5)),
-
+        axis.line = element_line(size = 0.4),
+      axis.text = element_text(size = 13),
       complete = TRUE
     )
 }
@@ -47,14 +49,16 @@ theme_report <- function () {
 #' @export
 theme_pres <- function () {
 
-  theme_minimal(base_size=14, base_family="Avenir") %+replace%
+  theme_minimal(base_size=14, base_family="Helvetica") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),
       legend.key = element_rect(fill="transparent", colour=NA),
-
-     panel.grid.major = element_line("grey60"),
-      panel.grid.minor = element_line("grey60",size = rel(0.5)),
+      axis.title.y = element_text(vjust = 1.05, angle = 90),
+      axis.title.x = element_text(hjust = 0.975),
+      plot.margin = unit(c(0.75, 0.75, 0.5, 0.75), "cm"),
+     panel.grid.major = element_line("grey55", size = rel(0.25)),
+      panel.grid.minor = element_line("grey60",size = rel(0.05)),
       complete = TRUE
     )
 }
@@ -63,7 +67,7 @@ theme_pres <- function () {
 #' @export
 theme_pub <- function () {
 
-  theme_minimal(base_size=10.5, base_family="Avenir") %+replace%
+  theme_minimal(base_size=10.5, base_family="Helvetica") %+replace%
     theme(
       panel.background  = element_blank(),
       legend.background = element_rect(fill="transparent", colour=NA),

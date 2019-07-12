@@ -1,6 +1,6 @@
 #' Fish palettes - groups colors into their palettes
 #'
-#' @keywords internal
+#' @export
 #'
 get_fishpals_cols <- function(...) {
   cols <- c(...)

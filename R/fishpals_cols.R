@@ -1,7 +1,6 @@
 #' Fish palettes Core Colors list - still growing
 #'
 #' @keywords internal
-#'
 
 fishpals_cols <- c(
 
@@ -42,10 +41,10 @@ fishpals_cols <- c(
   `CFS teal` = "#1CD2A3",
 
   # genidaqs
-  `genidaqs green` = "#53AC41",
   `genidaqs yellow` = "#F9F871",
+  `genidaqs green` = "#98E984",
   `genidaqs pink` = "#CA5B97",
-  `genidaqs blue` = "#178EC2"
+  `genidaqs blue` = "#008991"
 
 )
 

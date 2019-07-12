@@ -21,8 +21,9 @@ Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderso
     devtools::install_github('fishciences/fishpals')
     library(fishpals)
     library(ggplot2)
+    
     ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
-       geom_point(size = 4.5, aes(color = Species), show.legend = FALSE) +
+       geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
        scale_color_fishpals("greensunfish") +
        theme_pres()
        
@@ -30,18 +31,18 @@ Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderso
        
 See `?fishpals::theme_report` for all available themes and `?fishpals::scale_color_fishpals` for available `ggplot2` scales. 
 
-## Species and life stages
+## Example species and life stage color palette sources:
 
-Juvenile steelhead:
+Juvenile steelhead
 
 ![juvenilesteelehad2](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/juvenile_steelhead2.jpg)
 
 
-Adult Chinook salmon:
+Adult Chinook salmon
 
 ![adultchinook](https://c1.staticflickr.com/9/8614/30177831831_4194c59228_b.jpg)
 
-Green sunfish:
+Green sunfish
 
 ![greensunfish](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/green_sunfish.jpg)
 
