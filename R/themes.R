@@ -24,15 +24,20 @@
 #'  theme_pub()
 #'
 theme_report <- function () {
-
-  theme_minimal(base_size=12, base_family="Avenir") %+replace%
+  theme_minimal(base_size = 12, base_family = "Geneva") %+replace%
     theme(
       panel.background  = element_blank(),
-      legend.background = element_rect(fill="transparent", colour=NA),
-      legend.key = element_rect(fill="transparent", colour=NA),
-      panel.grid.major = element_line("grey75", size = rel(0.5)),
+      legend.background = element_rect(fill = "transparent", colour = NA),
+      legend.key = element_rect(fill = "transparent", colour = NA),
+      panel.grid.major = element_line("grey75",
+                                      size = rel(0.4)),
       panel.grid.minor = element_line("grey75",
-        size = rel(0.15)),
+                                      size = rel(0.15)),
+      panel.spacing.x = unit(2, "lines"),
+      strip.text = element_text(size = 10, face = "bold"),
+      strip.background = element_rect(fill = "gray95",
+                                      color = "transparent",
+                                      size = rel(0.5)),
 
       complete = TRUE
     )
