@@ -24,7 +24,7 @@
 #'  theme_pub()
 #'
 theme_report <- function () {
-<<<<<<< HEAD
+
   theme_minimal(base_size = 12, base_family = "Geneva") %+replace%
     theme(
       panel.background  = element_blank(),
