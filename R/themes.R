@@ -49,7 +49,7 @@ theme_report <- function(border = TRUE) {
 
   ret <- theme_foundationfp() %+replace%
     theme(
-      panel.border = element_rect(colour = "gray25", size = rel(1.20)),
+      #panel.border = element_rect(colour = "gray25", size = rel(1.20)),
       plot.margin = margin(7.5, 7.5, 7.5, 7.5),
       legend.background = element_rect(fill = "transparent",
                                        colour = NA),
