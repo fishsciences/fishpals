@@ -11,7 +11,7 @@ ggplot(mtcars) +
 
 ggplot(iris) +
   geom_bar(aes(x = Species, y = Sepal.Width, fill = Species), stat = "identity") +
-  theme_report() +
+  theme_pub() +
   scale_fill_fishpals()
 
 ggplot(mtcars) +

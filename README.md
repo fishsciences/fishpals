@@ -3,22 +3,24 @@
 
 # fishpals: fish color palettes, themes, and scales (ha\!) for plots
 
+![](fishpals_color.png)
+
 Heavily influenced by Diane Cook’s `ochre` package and Karthik Ram’s
 `wesanderson` package, this package provides color palettes and some
 lightweight ggplot2 themes. Since Cramer Fish Sciences works mostly with
 North American/northwestern fish species, we’re talking about a lot of
-greens, browns, and grays. But we’re open to adding some tropical
-palettes.
+greens, browns, and grays here. But we did just add a [surge
+wrasse](https://tinyurl.com/y2xljdlp) palette\!
 
 ## Usage
 
 ``` 
-devtools::install_github('fishsciences/fishpals')
+devtools::install_github('fishciences/fishpals')
 library(fishpals)
 library(ggplot2)
 
 ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
-   geom_point(size = 4.5, aes(color = Species), show.legend = FALSE) +
+   geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
    scale_color_fishpals("greensunfish") +
    theme_pres()
    
@@ -29,19 +31,115 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
 See `?fishpals::theme_report` for all available themes and
 `?fishpals::scale_color_fishpals` for available `ggplot2` scales.
 
-## Example species and life stage color palette sources:
+The `fishpals` palettes default to diverging colors when the number of
+required colors is small (n \<= 5).
 
-Juvenile
-steelhead
+``` r
+ggplot(iris) +
+  geom_bar(aes(x = Species, y = Sepal.Width, fill = Species), stat = "identity") +
+  theme_pub() +
+  scale_fill_fishpals("adultchinook")
+```
 
-![juvenilesteelehad2](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/juvenile_steelhead2.jpg)
+![](README-unnamed-chunk-2-1.png)<!-- -->
 
-Adult Chinook
-salmon
+### Examples
 
-![adultchinook](https://c1.staticflickr.com/9/8614/30177831831_4194c59228_b.jpg)
+Faceted scatterplot with the presentation theme (`theme_pres()`) and
+`surgewrasse` palette, discrete vs. continuous:
 
-Green
-sunfish
+``` r
+# discrete color scale
+ggplot(mtcars) +
+   geom_point(aes(x = disp, 
+                  y = hp, 
+                  color = factor(carb) ),
+              size = 3.5, alpha = 0.75) +
+  facet_wrap(~am) +
+  scale_color_fishpals("surgewrasse", discrete = TRUE) +
+  theme_report()
+```
 
-![greensunfish](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/green_sunfish.jpg)
+![](README-unnamed-chunk-3-1.png)<!-- -->
+
+``` r
+
+# continuous scale
+ggplot(mtcars) +
+   geom_point(aes(x = disp, y = hp, color = carb ),
+              size = 3.5, alpha = 0.75) +
+  facet_wrap(~am) +
+  scale_color_fishpals("surgewrasse", discrete = FALSE) +
+  theme_report()
+```
+
+![](README-unnamed-chunk-3-2.png)<!-- -->
+
+For publications, we’ve set some defaults that journals tend to
+like:
+
+``` r
+# sample code  odified from: http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+options(scipen=999)
+data("midwest", package = "ggplot2")
+
+ggplot(midwest, aes(x=area, y=poptotal)) +
+  geom_point(aes(col=state, size=popdensity), alpha = 0.75) +
+  xlim(c(0, 0.1)) +
+  ylim(c(0, 500000)) +
+  labs(subtitle="Area Vs Population",
+       y="Population",
+       x="Area",
+       caption = "Source: midwest") +
+  scale_color_fishpals("adultchinook") +
+  theme_pub() +
+  theme(legend.position = "none")
+#> Warning: Removed 15 rows containing missing values (geom_point).
+```
+
+![](README-unnamed-chunk-4-1.png)<!-- -->
+
+``` r
+p <- ggplot(mpg, aes(class, hwy))
+p + geom_boxplot(aes(color = class), show.legend = FALSE,
+                 outlier.shape = NA) +
+  geom_jitter(width = 0.2, aes(color = class), alpha = 0.5,
+              show.legend = FALSE) +
+  scale_color_fishpals("juvsteel") +
+  theme_report()
+```
+
+![](README-unnamed-chunk-5-1.png)<!-- -->
+
+If you happen to work for us, we also have some built-in “branded” color
+palettes, `genidaqs` and `CFS` (which is the default palette for the
+`scale` functions in `fishpals`):
+
+``` r
+# Histogram on a Continuous (Numeric) Variable
+# code source: http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+g <- ggplot(mpg, aes(displ)) + 
+  scale_fill_fishpals(palette = "genidaqs")
+
+g + geom_histogram(aes(fill=class), 
+                   binwidth = .1, 
+                   col="black", 
+                   size= 0.1) +
+  theme_report()
+```
+
+![](README-unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+
+g + geom_histogram(aes(fill=class), 
+                   bins=5, 
+                   col="black", 
+                   size=.1) +   
+  scale_fill_fishpals() +
+  theme_report()
+#> Scale for 'fill' is already present. Adding another scale for 'fill',
+#> which will replace the existing scale.
+```
+
+![](README-unnamed-chunk-6-2.png)<!-- -->
