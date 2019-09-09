@@ -10,7 +10,12 @@ Description: Heavily influenced by Diane Cook's `ochre` package and Karthik Ram'
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-Suggests: testthat, vdiffr, covr
+Suggests: 
+    testthat,
+    vdiffr,
+    covr,
+    knitr,
+    rmarkdown
 Imports: 
     grDevices,
     ggplot2,
@@ -20,3 +25,4 @@ License: MIT + file LICENSE
 URL: https://github.com/fishsciences/fishpals
 BugReports: https://github.com/fishsciences/fishpals/issues
 Depends: R (>= 3.2.0)
+VignetteBuilder: knitr
