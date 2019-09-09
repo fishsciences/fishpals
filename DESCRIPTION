@@ -6,9 +6,7 @@ Author: Myfanwy Johnston, Bob Rudis
 Maintainer: Myfanwy Johnston <myfanwy.johnston@fishsciences.net>
 Description: Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderson` package, this package
     provides species-specific color palettes (generated from pictures of fish 
-    that 'Cramer Fish Sciences' ('CFS') has worked with in the past), and some lightweight ggplot2 themes. Since 'CFS' works 
-    mostly with North American, northwestern fish species, we're talking about a lot of 
-    greens, browns, and grays. But we're open to adding some tropical palettes.
+    that 'Cramer Fish Sciences' ('CFS') has worked with in the past), and some lightweight ggplot2 themes.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

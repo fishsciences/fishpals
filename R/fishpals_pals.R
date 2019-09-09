@@ -22,17 +22,19 @@ fishpals_pals <- list(
 
   `adultsteel` = get_fishpals_cols(
     "adultsteel dark liver" ,
-    "adultsteel red ochre" ,
     "adultsteel gray" ,
     "adultsteel feldgrau" ,
-    "adultsteel spanish bistre"),
+    "adultsteel spanish bistre",
+     "adultsteel red ochre"
+),
 
   `adultchinook` = get_fishpals_cols(
     "chinook red",
     "chinook olive" ,
-    "chinook dark olive",
-    "chinook pink" ,
-    "chinook teal") ,
+    "chinook dark gray",
+        "chinook pink",
+    "chinook blue"
+    ) ,
 
   `greensunfish` = get_fishpals_cols(
     "sunfish green" ,
@@ -50,9 +52,20 @@ fishpals_pals <- list(
     "CFS teal" ) ,
 
   `genidaqs` = get_fishpals_cols(
-    "genidaqs green" ,
-    "genidaqs yellow" ,
-    "genidaqs pink" ,
-    "genidaqs blue")
+      "genidaqs yellow",
+       "genidaqs pink",
+      "genidaqs blue",
+      "genidaqs green",
+      "genidaqs brown"
+
+),
+
+`surgewrasse` = get_fishpals_cols(
+  "surgewrasse orange" ,
+  "surgewrasse teal"   ,
+  "surgewrasse green"  ,
+  "surgewrasse blue"   ,
+  "surgewrasse purple"
+)
 
 )

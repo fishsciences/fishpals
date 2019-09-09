@@ -4,7 +4,7 @@
 \name{fishpals_cols}
 \alias{fishpals_cols}
 \title{Fish palettes Core Colors list - still growing}
-\format{An object of class \code{character} of length 30.}
+\format{An object of class \code{character} of length 31.}
 \usage{
 fishpals_cols
 }
