@@ -19,7 +19,9 @@ scale_color_fishpals <- function(palette = "CFS", discrete = TRUE, reverse = FAL
   pal <- fishpals(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("color", paste0("fishpals_", palette), palette = pal, ...)
+    discrete_scale("color",
+                   paste0("fishpals_", palette),
+                   palette = pal, ...)
   } else {
     scale_color_gradientn(colours = pal(256), ...)
   }

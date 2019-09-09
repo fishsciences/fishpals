@@ -44,7 +44,8 @@ theme_foundationfp <- function(base_size = 11, base_family = "Geneva") {
               )
 }
 
-
+#' @export
+#'
 theme_report <- function(border = TRUE) {
 
   ret <- theme_foundationfp() %+replace%
@@ -78,7 +79,7 @@ theme_report <- function(border = TRUE) {
   ret
 }
 
-#' @rdname theme_report
+#' @rdname theme_pres
 #' @export
 theme_pres <- function () {
 
@@ -96,7 +97,7 @@ theme_pres <- function () {
     )
 }
 
-#' @rdname theme_report
+#' @rdname theme_pub
 #' @export
 theme_pub <- function () {
 

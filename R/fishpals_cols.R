@@ -19,11 +19,11 @@ fishpals_cols <- c(
   `adultsteel spanish bistre` =  "#707239",
 
   # adultchinook
-  `chinook red` = "#BA1D30",
-  `chinook olive` =  "#767448",
-  `chinook dark olive` = "#3B3239",
-  `chinook pink` = "#FBB7C0" ,
-  `chinook teal` = "#336F6D",
+  `chinook red` = "#BA1D57",
+  `chinook olive` =  "#8DAD6E",
+  `chinook dark gray` = "#273535",
+  `chinook blue` = "#0C4FA0" ,
+  `chinook pink` = "#EFB0A1",
 
   # greensunfish
   `sunfish green` ="#4EC4B8",
@@ -41,10 +41,18 @@ fishpals_cols <- c(
   `CFS teal` = "#1CD2A3",
 
   # genidaqs
-  `genidaqs yellow` = "#F9F871",
-  `genidaqs green` = "#98E984",
-  `genidaqs pink` = "#CA5B97",
-  `genidaqs blue` = "#008991"
+  `genidaqs yellow` = "#FAFF6B",
+   `genidaqs blue` = "#2597C4" ,
+  `genidaqs brown` = "#3A3737",
+  `genidaqs green` = "#6CFC95",
+  `genidaqs pink` = "#CA5B97" ,
+
+  # surgewrasse
+`surgewrasse orange` = "#E24D4D",
+`surgewrasse teal` =   "#1C5B67",
+`surgewrasse green` = "#B6DD18",
+`surgewrasse blue` = "#12DAF6",
+`surgewrasse purple` = "#966480"
 
 )
 
