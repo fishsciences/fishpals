@@ -6,7 +6,10 @@ library(ggplot2)
 
 ggplot(mtcars) +
   geom_point(aes(x = disp, y = hp)) +
-  theme_report()
+  theme_report(inner_border = TRUE,
+               outer_border = TRUE)
+
+
 
 
 ggplot(iris) +
