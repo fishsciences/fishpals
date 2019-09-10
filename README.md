@@ -136,8 +136,8 @@ g + geom_histogram(aes(fill=class),
                    bins=5, 
                    col="black", 
                    size=.1) +   
-  scale_fill_fishpals() +
-  theme_report()
+  scale_fill_fishpals(reverse = TRUE) +
+  theme_pres()
 #> Scale for 'fill' is already present. Adding another scale for 'fill',
 #> which will replace the existing scale.
 ```
