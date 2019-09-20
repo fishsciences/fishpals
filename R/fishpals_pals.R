@@ -30,10 +30,10 @@ fishpals_pals <- list(
 
   `adultchinook` = get_fishpals_cols(
     "chinook red",
-    "chinook olive" ,
+    "chinook olive",
     "chinook dark gray",
-    "chinook pink",
-    "chinook blue"
+    "chinook blue",
+    "chinook pink"
     ) ,
 
   `greensunfish` = get_fishpals_cols(

@@ -1,20 +1,49 @@
-# context("fonts")
-# the structure of a theme is a list of lists
+---
+title: "fishpals"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{fishpals}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
 library(fishpals)
-library(ggplot2)
+```
+
+The `fishpals` package provides fish-derived color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
+
+This vignette presents examples of all the palettes and themes included in the package.  It is organized by theme and chart type.
+
+## `theme_report()`
+
+This theme is designed to have good properties when knitting to pdf or to Microsoft Word.  These properties include:
+
+1. Default size 10 font, with size 11 for axis titles and size 13 for chart titles.
+2. Border around the plot margins
+3. Default legend position of "bottom"
+4. Close-ish spacing of facets to fit on a vertical page
+
+
+```{r}
 
 ggplot(mtcars) +
   geom_point(aes(x = disp, y = hp)) +
-  theme_report(inner_border = TRUE,
-               outer_border = TRUE)
-
-
+  theme_report()
 
 
 ggplot(iris) +
   geom_bar(aes(x = Species, y = Sepal.Width, fill = Species), stat = "identity") +
-  theme_pub() +
+  theme_report() +
   scale_fill_fishpals()
 
 ggplot(mtcars) +
@@ -90,3 +119,6 @@ ggplot(mtcars, aes(x=`car name`, y=mpg_z, label=mpg_z)) +
   labs(subtitle="Normalised mileage from 'mtcars'",
        title= "Diverging Bars") +
   coord_flip()
+
+```
+
