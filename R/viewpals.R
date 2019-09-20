@@ -7,10 +7,11 @@
 #' @param labels boolean, whether to show the hexadecimal representation of the colours in each tile
 #' @param borders colour of the borders of the tiles; matches the border argument of `graphics::rect()`. The default means par("fg"). Use border = NA to omit borders.
 #' @param cex_label size of printed labels, works the same as cex parameter of plot()
+#' @export
 #' @examples
 #' viewpals("genidaqs")
 #' viewpals("adultchinook")
-viewpals <- function (fishpal="CFS", labels = TRUE, borders = NULL, cex_label = 1)
+viewpals <- function(fishpal="cfs", labels = TRUE, borders = NULL, cex_label = 0.75)
 {
     colours <- as.character(fishpals:::fishpals_pals[[fishpal]])
     n <- length(colours)

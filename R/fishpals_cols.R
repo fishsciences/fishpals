@@ -1,17 +1,17 @@
 #' Fish palettes Core Colors list - still growing
-#'
+#' The names of the colors have to match those in fishpals_pals
 #' @keywords internal
 
 fishpals_cols <- c(
 
-  # juvsteel
+  # juvsteelhead
   `juvsteel green` = "#A3C595" ,
   `juvsteel taupe` =   "#BA8F78" ,
   `juvsteel grey` = "#5D5360",
   `juvsteel jungle green` = "#1c240d" ,
   `juvsteel tuscan red` = "#784039" ,
 
-  # adultsteel
+  # adultsteelhead
   `adultsteel dark liver` = "#504C41",
   `adultsteel red ochre` = "#E2704D",
   `adultsteel gray` = "#B8BABD",

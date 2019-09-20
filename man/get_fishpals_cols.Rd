@@ -2,7 +2,8 @@
 % Please edit documentation in R/fishpals_pals.R, R/get_fishpals_cols.R
 \name{get_fishpals_cols}
 \alias{get_fishpals_cols}
-\title{Fish palettes - groups colors into their palettes}
+\title{Fish palettes - groups colors into their palettes
+The name of the palette is set here}
 \usage{
 get_fishpals_cols(...)
 
@@ -16,6 +17,7 @@ The 6-digit hexes attached to the name
 }
 \description{
 Fish palettes - groups colors into their palettes
+The name of the palette is set here
 
 Function that extracts hex codes form the fishpals_colors vector by name
 }

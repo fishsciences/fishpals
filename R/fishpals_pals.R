@@ -1,5 +1,5 @@
 #' Fish palettes - groups colors into their palettes
-#'
+#' The name of the palette is set here
 #' @export
 #'
 get_fishpals_cols <- function(...) {
@@ -13,14 +13,14 @@ get_fishpals_cols <- function(...) {
 
 fishpals_pals <- list(
 
-  `juvsteel` = get_fishpals_cols(
+  `juvsteelhead` = get_fishpals_cols(
     "juvsteel green" ,
     "juvsteel taupe" ,
     "juvsteel grey" ,
     "juvsteel jungle green" ,
     "juvsteel tuscan red") ,
 
-  `adultsteel` = get_fishpals_cols(
+  `adultsteelhead` = get_fishpals_cols(
     "adultsteel dark liver" ,
     "adultsteel gray" ,
     "adultsteel feldgrau" ,
@@ -30,10 +30,10 @@ fishpals_pals <- list(
 
   `adultchinook` = get_fishpals_cols(
     "chinook red",
-    "chinook pink",
+    "chinook olive",
     "chinook dark gray",
     "chinook blue",
-    "chinook olive"
+    "chinook pink"
     ) ,
 
   `greensunfish` = get_fishpals_cols(
@@ -43,7 +43,7 @@ fishpals_pals <- list(
     "sunfish gray" ,
     "sunfish dark gray"),
 
-  `CFS` = get_fishpals_cols(
+  `cfs` = get_fishpals_cols(
     "CFS blue",
     "CFS dark gray" ,
     "CFS gridlines" ,
@@ -53,7 +53,7 @@ fishpals_pals <- list(
 
   `genidaqs` = get_fishpals_cols(
       "genidaqs yellow",
-       "genidaqs pink",
+      "genidaqs pink",
       "genidaqs blue",
       "genidaqs green",
       "genidaqs brown"
@@ -69,3 +69,4 @@ fishpals_pals <- list(
 )
 
 )
+
