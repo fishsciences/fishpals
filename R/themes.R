@@ -46,11 +46,13 @@ theme_foundationfp <- function(base_size = 11, base_family = "Geneva") {
 
 #' @export
 #'
-theme_report <- function(border = TRUE) {
+theme_report <- function(inner_border = TRUE, outer_border = TRUE,
+                         outer_border_lwd = 0.5,
+                         outer_border_color = "black") {
 
   ret <- theme_foundationfp() %+replace%
     theme(
-      panel.border = element_rect(colour = "gray25", size = rel(1.20)),
+     panel.border = element_rect(colour = "gray25", size = rel(1.20)),
       plot.margin = margin(7.5, 7.5, 7.5, 7.5),
       legend.background = element_rect(fill = "transparent",
                                        colour = NA),
@@ -60,7 +62,7 @@ theme_report <- function(border = TRUE) {
                                       size = rel(0.4)),
       panel.grid.minor = element_line("grey75",
                                       size = rel(0.15)),
-      panel.spacing.x = unit(5, "lines"),
+      panel.spacing.x = unit(3, "lines"),
       strip.text = element_text(size = 10,
                                 face = "bold",
                                 margin = margin(t = 7.5, r = 0, b = 5.5, l = 0)),
@@ -72,9 +74,49 @@ theme_report <- function(border = TRUE) {
 
       complete = TRUE )
 
-  if(border == FALSE) {
+  grid::grid.rect(0.5, 0.5,
+                width=unit(0.99,"npc"),
+                height=unit(0.99,"npc"),
+          gp = grid::gpar(lwd = outer_border,
+                          fill=NA,
+                          col = outer_border_color))
+
+  if(inner_border == FALSE) {
     ret <- ret + theme(panel.border = element_rect(colour = NA),
                        axis.ticks = element_blank())
+    grid::grid.rect(0.5, 0.5,
+                width=unit(0.99,"npc"),
+                height=unit(0.99,"npc"),
+          gp = grid::gpar(lwd = outer_border,
+                          fill=NA,
+                          col = outer_border_color))
+  }
+
+  if(outer_border == FALSE) {
+    ret <- theme_foundationfp() %+replace%
+    theme(
+     panel.border = element_rect(colour = "gray25", size = rel(1.20)),
+      plot.margin = margin(7.5, 7.5, 7.5, 7.5),
+      legend.background = element_rect(fill = "transparent",
+                                       colour = NA),
+      legend.key = element_rect(fill = "transparent",
+                                colour = NA),
+      panel.grid.major = element_line("grey75",
+                                      size = rel(0.4)),
+      panel.grid.minor = element_line("grey75",
+                                      size = rel(0.15)),
+      panel.spacing.x = unit(3, "lines"),
+      strip.text = element_text(size = 10,
+                                face = "bold",
+                                margin = margin(t = 7.5, r = 0, b = 5.5, l = 0)),
+      strip.background = element_rect(fill = "gray95",
+                                      color = "transparent",
+                                      size = rel(0.75)),
+      axis.text = element_text(size = 13),
+      axis.title = element_text(size = 14),
+
+      complete = TRUE )
+
   }
   ret
 }

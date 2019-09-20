@@ -3,12 +3,14 @@
 \docType{data}
 \name{fishpals_cols}
 \alias{fishpals_cols}
-\title{Fish palettes Core Colors list - still growing}
-\format{An object of class \code{character} of length 31.}
+\title{Fish palettes Core Colors list - still growing
+The names of the colors have to match those in fishpals_pals}
+\format{An object of class \code{character} of length 36.}
 \usage{
 fishpals_cols
 }
 \description{
 Fish palettes Core Colors list - still growing
+The names of the colors have to match those in fishpals_pals
 }
 \keyword{internal}
