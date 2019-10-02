@@ -12,7 +12,7 @@ lightweight ggplot2 themes for Cramer Fish Sciences and fish lovers alike
 \describe{
 \item{theme_foundation}{Code modified from [jrnold's theme_foundation](https://github.com/jrnold/ggthemes/blob/master/R/theme-foundation.R); designed to be a foundation from which the other themes are built, and not meant to be used directly.}
 \item{theme_report}{has gridlines}
-\item{theme_pres}{intended for use in presentations. Dark theme, larger base_font}
+\item{theme_pres}{intended for use in presentations. Larger base_font}
 \item{theme_pub}{good template for publications}
 }
 }
