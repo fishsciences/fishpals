@@ -116,13 +116,13 @@ ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
 
 `fishpals` comes with three themes: `theme_report()`, `theme_pres()`, and `theme_pub()`.  These themes are designed to suppor the three formats that scientists typically use for communication (reports, presentations, and publications).  
 
-`theme_report()` has defaults that translate well to written reports and knitting to Word documents.  It has some additional optional arguments that allow for showing or hiding some common customizations (outer border, inner border, and they way they look).
+`theme_report()` has defaults that translate well to written reports and knitting to Word documents.  It has some additional optional arguments that allow for showing or hiding a border around the plot panel.
 
 ```{r}
 ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
   geom_point(aes(color = Species), size = 1.5) +
   scale_color_fishpals() +
-  theme_report(inner_border = TRUE, outer_border = TRUE)
+  theme_report(inner_border = TRUE)
 ```
 
 
