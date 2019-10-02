@@ -3,7 +3,7 @@
 
 # fishpals: fish color palettes, themes, and scales (ha\!) for plots
 
-![](fishpals_color.png)
+![](man/figures/README-fishpals_color.png)
 
 ## Usage
 
@@ -36,7 +36,7 @@ ggplot(iris) +
   scale_fill_fishpals("adultchinook")
 ```
 
-![](README-unnamed-chunk-3-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
 
 ### Examples
 
@@ -55,7 +55,7 @@ ggplot(mtcars) +
   theme_pres()
 ```
 
-![](README-unnamed-chunk-4-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 For publications, we’ve set some defaults that journals tend to
 like:
@@ -78,7 +78,7 @@ ggplot(midwest, aes(x=area, y=poptotal)) +
 #> Warning: Removed 15 rows containing missing values (geom_point).
 ```
 
-![](README-unnamed-chunk-5-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 The juvenile steelhead palette with `theme_report()`:
 
@@ -92,7 +92,7 @@ ggplot(mpg, aes(class, hwy)) +
   theme_report()
 ```
 
-![](README-unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
 
 Because this package was initially developed for CFS employees, we also
 have some built-in “branded” color palettes, `genidaqs` and `CFS` (which
@@ -111,7 +111,7 @@ g + geom_histogram(aes(fill=class),
   theme_report()
 ```
 
-![](README-unnamed-chunk-7-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
 
@@ -126,4 +126,4 @@ g + geom_histogram(aes(fill=class),
 #> which will replace the existing scale.
 ```
 
-![](README-unnamed-chunk-7-2.png)<!-- -->
+![](man/figures/README-unnamed-chunk-7-2.png)<!-- -->

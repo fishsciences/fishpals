@@ -10,7 +10,7 @@ editor_options:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-",
+  fig.path = "man/figures/README-",
   echo = TRUE,
   eval = TRUE
 )
@@ -20,7 +20,7 @@ library(ggplot2)
 
 # fishpals: fish color palettes, themes, and scales (ha!) for plots
 
-![](fishpals_color.png)
+![](man/figures/README-fishpals_color.png)
 
 
 ## Usage
