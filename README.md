@@ -1,9 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fishpals: fish color palettes, themes, and scales (ha\!) for plots
+# fishpals <img src="man/figures/fishpals_color.png" align="right" alt="" width="120" />
 
-![](man/figures/README-fishpals_color.png)
+Fish color palettes, themes, and scales (ha\!) for ggplot2 plots.
+
+<br>
 
 ## Usage
 

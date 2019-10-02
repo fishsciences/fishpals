@@ -18,10 +18,8 @@ library(fishpals)
 library(ggplot2)
 ```
 
-# fishpals: fish color palettes, themes, and scales (ha!) for plots
-
-![](man/figures/README-fishpals_color.png)
-
+# fishpals <img src="man/figures/fishpals_color.png" align="right" alt="" width="120" />
+Fish color palettes, themes, and scales (ha!) for ggplot2 plots.
 
 ## Usage
 

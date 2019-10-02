@@ -90,17 +90,6 @@
 <a href="#introduction" class="anchor"></a>Introduction</h1>
 <p>The <code>fishpals</code> package provides fish-inspired color palettes and some lightweight <code>ggplot</code> themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.</p>
 </div>
-<div id="table-of-contents" class="section level1">
-<h1 class="hasAnchor">
-<a href="#table-of-contents" class="anchor"></a>Table of contents</h1>
-<ol style="list-style-type: decimal">
-<li>Installing <code>fishpals</code>
-</li>
-<li>Convenience functions for discovering and viewing palettes</li>
-<li>The <code>scale_*_fishpals()</code> functions</li>
-<li>The <code>theme_*()</code> functions</li>
-</ol>
-</div>
 <div id="installing-and-loading-fishpals-into-r" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installing-and-loading-fishpals-into-r" class="anchor"></a>1. Installing and loading <code>fishpals</code> into R</h1>
@@ -186,7 +175,10 @@
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">color =</span> Petal.Length)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="../reference/scale_color_fishpals.html">scale_color_fishpals</a></span>(<span class="st">"genidaqs"</span>, <span class="dt">discrete =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="fishpals_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
-<p>#4. The <code>theme_*()</code> functions</p>
+</div>
+<div id="the-theme_-functions" class="section level1">
+<h1 class="hasAnchor">
+<a href="#the-theme_-functions" class="anchor"></a>4. The <code>theme_*()</code> functions</h1>
 <p><code>fishpals</code> comes with three themes: <code>theme_report()</code>, <code>theme_pres()</code>, and <code>theme_pub()</code>. These themes are designed to suppor the three formats that scientists typically use for communication (reports, presentations, and publications).</p>
 <p><code>theme_report()</code> has defaults that translate well to written reports and knitting to Word documents. It has some additional optional arguments that allow for showing or hiding some common customizations (outer border, inner border, and they way they look).</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(iris, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Sepal.Length, <span class="dt">y =</span> Petal.Width)) <span class="op">+</span></a>
@@ -216,10 +208,10 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#table-of-contents">Table of contents</a></li>
       <li><a href="#installing-and-loading-fishpals-into-r">1. Installing and loading <code>fishpals</code> into R</a></li>
       <li><a href="#convenience-functions">2. Convenience functions</a></li>
       <li><a href="#the-scale__fishpals-functions">3. The <code>scale_*_fishpals()</code> functions</a></li>
+      <li><a href="#the-theme_-functions">4. The <code>theme_*()</code> functions</a></li>
       </ul>
 </div>
       </div>

@@ -28,15 +28,9 @@ library(ggplot2)
 
 The `fishpals` package provides fish-inspired color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
 
-# Table of contents
-
-1. Installing `fishpals`
-2. Convenience functions for discovering and viewing palettes
-3. The `scale_*_fishpals()` functions
-4. The `theme_*()` functions
-
 
 # 1. Installing and loading `fishpals` into R
+<br>
 
 `fishpals` is a pretty trivial package, so it's unlikely it will ever be submitted to CRAN.  You can install the `fishpals` package using either `devtools::install_github()` or the `install_github` function from the `remotes` package:
 
@@ -118,7 +112,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
 ```
 
 
-#4. The `theme_*()` functions
+# 4. The `theme_*()` functions
 
 `fishpals` comes with three themes: `theme_report()`, `theme_pres()`, and `theme_pub()`.  These themes are designed to suppor the three formats that scientists typically use for communication (reports, presentations, and publications).  
 
