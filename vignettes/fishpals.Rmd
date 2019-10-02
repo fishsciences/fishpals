@@ -12,13 +12,155 @@ editor_options:
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE
 )
 ```
 
 ```{r setup}
 library(fishpals)
+library(ggplot2)
 ```
 
-The `fishpals` package provides fish-derived color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
+# Introduction
+
+The `fishpals` package provides fish-inspired color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
+
+# Table of contents
+
+1. Installing `fishpals`
+2. Convenience functions for discovering and viewing palettes
+3. The `scale_*_fishpals()` functions
+4. The `theme_*()` functions
+
+
+# 1. Installing and loading `fishpals` into R
+
+`fishpals` is a pretty trivial package, so it's unlikely it will ever be submitted to CRAN.  You can install the `fishpals` package using either `devtools::install_github()` or the `install_github` function from the `remotes` package:
+
+```{r, eval=FALSE}
+
+devtools::install_github("fishsciences/fishpals", build_vignettes = TRUE) 
+library(fishpals)
+
+```
+
+
+
+
+# 2. Convenience functions
+
+To see all the palettes included in the `fishpals` package, use `getpals()`:
+
+```{r}
+getpals()
+
+```
+
+
+To view a particular palette, call it by name with `viewpals()`
+
+```{r}
+viewpals("surgewrasse")
+```
+
+To see a full list of all the colors in each palette, use `get_fishpals_cols()`:
+
+```{r}
+get_fishpals_cols()
+
+```
+
+
+# 3. The `scale_*_fishpals()` functions
+
+`fishpals` is designed to integrate with `ggplot2` code, and so provides two `ggplot2` scale functions for displaying its custom color palettes.  To use them, map a variable to a color aesthetic and call the appropriate scale function: `scale_fill_fishpals()` or `scale_color_fishpals()`:
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species), size = 1.5) +
+  scale_color_fishpals()
+
+```
+
+The default color palette is "cfs".  To use a different one, just call it by name:
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species), size = 1.5) +
+  scale_color_fishpals("adultchinook")
+```
+
+Both scales can be called in the same plot:
+
+```{r}
+
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
+  geom_boxplot(aes(color = Species, fill = Species), 
+               width = 0.5, 
+               alpha = 0.5) +
+  scale_fill_fishpals() +
+  scale_color_fishpals()
+
+```
+
+
+By default, the `discrete` parameter is set to TRUE, that is, the colors will be discrete until the number of colors required exceeds the available base colors in the plot (typically 5 or 6).  If your variable requires more colors than that, a continuous palette can be generated from the base pallette by setting `discrete = FALSE`:
+
+```{r}
+
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Petal.Length)) +
+  scale_color_fishpals("genidaqs", discrete = FALSE)
+
+```
+
+
+#4. The `theme_*()` functions
+
+`fishpals` comes with three themes: `theme_report()`, `theme_pres()`, and `theme_pub()`.  These themes are designed to suppor the three formats that scientists typically use for communication (reports, presentations, and publications).  
+
+`theme_report()` has defaults that translate well to written reports and knitting to Word documents.  It has some additional optional arguments that allow for showing or hiding some common customizations (outer border, inner border, and they way they look).
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species), size = 1.5) +
+  scale_color_fishpals() +
+  theme_report(inner_border = TRUE, outer_border = TRUE)
+```
+
+
+`theme_pres()` has defaults that should help you out when you have to `ggsave()` a plot for a presentation - larger default fonts, etc.  I'm working on a dark presentation theme, stay posted.
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species), size = 1.5) +
+  scale_color_fishpals("juvsteelhead") +
+  theme_pres()
+
+```
+
+`theme_pub()` has some default options often used in publications:
+
+```{r}
+
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
+  geom_point(aes(color = Species), size = 1.5) +
+  scale_color_fishpals("adultsteelhead") +
+  theme_pub()
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
