@@ -46,8 +46,7 @@ theme_foundationfp <- function(base_size = 11, base_family = "Geneva") {
 
 #' @export
 #'
-theme_report <- function(inner_border = TRUE,
-                         outer_border_color = "black") {
+theme_report <- function(inner_border = TRUE) {
 
   ret <- theme_foundationfp() %+replace%
     theme(
@@ -62,15 +61,15 @@ theme_report <- function(inner_border = TRUE,
       panel.grid.minor = element_line("grey75",
                                       size = rel(0.15)),
       panel.spacing.x = unit(3, "lines"),
-      strip.text = element_text(size = 10,
+      strip.text = element_text(size = 11,
                                 face = "bold",
                                 margin = margin(t = 7.5, r = 0,
                                                 b = 5.5, l = 0)),
-      strip.background = element_rect(fill = "gray95",
+      strip.background = element_rect(fill = "transparent",
                                       color = "transparent",
                                       size = rel(0.75)),
-      axis.text = element_text(size = 13),
-      axis.title = element_text(size = 14),
+      axis.text = element_text(size = 10),
+      axis.title = element_text(size = 11),
 
       complete = TRUE )
 
