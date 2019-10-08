@@ -78,12 +78,6 @@ theme_report <- function(inner_border = TRUE,
   if(inner_border == FALSE) {
     ret <- ret + theme(panel.border = element_rect(colour = NA),
                        axis.ticks = element_blank())
-    grid::grid.rect(0.5, 0.5,
-                width=unit(0.99,"npc"),
-                height=unit(0.99,"npc"),
-          gp = grid::gpar(lwd = outer_border,
-                          fill=NA,
-                          col = outer_border_color))
   }
 
   ret
