@@ -9,7 +9,7 @@ Fish color palettes, themes, and scales (ha\!) for ggplot2 plots.
 
 ``` r
 
-    devtools::install_github('fishciences/fishpals')
+    devtools::install_github('fishsciences/fishpals')
     library(fishpals)
     library(ggplot2)
 
