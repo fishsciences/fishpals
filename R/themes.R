@@ -3,9 +3,8 @@
 #'@description lightweight ggplot2 themes for Cramer Fish Sciences and fish lovers alike
 #'
 #'\describe{
-#'\item{theme_foundation}{Code modified from [jrnold's theme_foundation](https://github.com/jrnold/ggthemes/blob/master/R/theme-foundation.R); designed to be a foundation from which the other themes are built, and not meant to be used directly.}
 #'\item{theme_report}{has gridlines}
-#'\item{theme_pres}{intended for use in presentations. Dark theme, larger base_font}
+#'\item{theme_pres}{intended for use in presentations. Transparent defaults, larger base_font}
 #'\item{theme_pub}{good template for publications}
 #'}
 #'
@@ -19,40 +18,47 @@
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 #'   geom_point(size = 4) +
 #'   scale_color_fishpals("genidaqs") +
-#'   theme_report()
+#'   theme_report(inner_border = TRUE)
 #'
-ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) +
-   geom_point(size = 4, alpha = .6) +
-   scale_color_fishpals(discrete = FALSE, palette = "genidaqs") +
-   theme_pres()
-
-
-theme_foundationfp <- function(base_size = 11, base_family = "Geneva") {
-  thm <- theme_grey(base_size = base_size, base_family = base_family)
-
-  # these additions to the foundation theme just remove some of the defaults of theme_gray and set them to transparent/NA/NULL to for other themes to iterate on
-  thm + theme(
-              panel.background = element_rect(color = NA),
-              legend.background = element_rect(colour = NA),
-              )
-}
-
+#' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) +
+#'    geom_point(size = 4, alpha = .6) +
+#'    scale_color_fishpals(discrete = FALSE, palette = "genidaqs") +
+#'    theme_pres(base_family = "Megrim")
 #' @export
 #'
 theme_report <- function(inner_border = TRUE,
                          outer_border = TRUE,
                          outer_border_lwd = 0.5,
-                         outer_border_color = "black") {
-  ret <- theme_foundationfp() %+replace%
-    # replace elements of theme_gray() with the following:
-    theme(
-      panel.border = element_rect(colour = "gray25",
-                                  size = rel(1.20)),
+                         outer_border_color = "gray40",
+                         inner_border_color = "gray25",
+                         base_size = 11,
+                         base_family = "Geneva") {
 
-      plot.margin = margin(t = 7.5,
-                           r = 7.5,
-                           b = 7.5,
-                           l = 7.5),
+
+  if(inner_border == FALSE) {
+
+    ret <- theme_gray(base_size = base_size, base_family = base_family) %+replace%
+
+     # replace elements of theme_gray() with the following:
+    theme(
+
+      # draws outer border
+      plot.background = element_rect(color = outer_border_color,
+                                     fill = NA,
+                                     size = rel(0.8)),
+
+      # margins around panel (space between inner panel and outer border)
+      plot.margin = margin(t = 47.5,
+                           r = 17.5,
+                           b = 17.5,
+                           l = 17.5),
+
+      # draws inner border
+      panel.border = element_blank(),
+
+      # inner panel background - the plot area
+      panel.background = element_rect(fill = "white"),
+
 
       legend.background = element_rect(fill = "transparent",
                                        colour = NA),
@@ -91,76 +97,151 @@ theme_report <- function(inner_border = TRUE,
 
       complete = TRUE
     )
+ret
+  }
 
-  grid::grid.rect(
-    x = 0.5,
-    y = 0.5,
-    width = unit(0.99, "npc"),
-    height = unit(0.99, "npc"),
-    gp = grid::gpar(lwd = outer_border,
-                    fill = NA,
-                    col = outer_border_color)
-  )
+    }  else if(outer_border == FALSE) {
 
-  if (inner_border == FALSE) {
-    ret <- ret + theme(panel.border = element_rect(colour = NA),
-                       axis.ticks = element_blank())
+    ret <- theme_gray(base_size = base_size, base_family = base_family) %+replace%
 
-    grid::grid.rect(
-      0.5,
-      0.5,
-      width = unit(0.99, "npc"),
-      height = unit(0.99, "npc"),
-      gp = grid::gpar(
-        lwd = outer_border,
-        fill = NA,
-        col = outer_border_color
-      )
+     # replace elements of theme_gray() with the following:
+    theme(
+
+      # draws outer border
+      plot.background = element_rect(color = NA,
+                                     fill = NA,
+                                     size = NA),
+
+      # margins around panel (space between inner panel and outer border)
+      plot.margin = margin(t = 47.5,
+                           r = 17.5,
+                           b = 17.5,
+                           l = 17.5),
+
+      # draws inner border
+      panel.border = element_rect(colour = inner_border_color,
+                                  fill = NA,
+                                  size = rel(1.20)),
+
+      # inner panel background - the plot area
+      panel.background = element_rect(fill = "white"),
+
+
+      legend.background = element_rect(fill = "transparent",
+                                       colour = NA),
+
+      legend.key = element_rect(fill = "transparent",
+                                colour = NA),
+
+      panel.grid.major = element_line("grey75",
+                                      size = rel(0.4)),
+
+      panel.grid.minor = element_line("grey75",
+                                      size = rel(0.15)),
+
+      panel.spacing.x = unit(3, "lines"),
+
+      strip.text = element_text(
+        size = 10,
+        face = "bold",
+        margin = margin(
+          t = 7.5,
+          r = 0,
+          b = 5.5,
+          l = 0
+        )
+      ),
+
+      strip.background = element_rect(
+        fill = "gray95",
+        color = "transparent",
+        size = rel(0.75)
+      ),
+
+      axis.text = element_text(size = 13),
+
+      axis.title = element_text(size = 14),
+
+      complete = TRUE
     )
+ret
   }
 
-  if (outer_border == FALSE) {
-    ret <- theme_foundationfp() %+replace%
-      theme(
-        panel.border = element_rect(colour = "gray25", size = rel(1.20)),
-        plot.margin = margin(7.5, 7.5, 7.5, 7.5),
-        legend.background = element_rect(fill = "transparent",
-                                         colour = NA),
-        legend.key = element_rect(fill = "transparent",
-                                  colour = NA),
-        panel.grid.major = element_line("grey75",
-                                        size = rel(0.4)),
-        panel.grid.minor = element_line("grey75",
-                                        size = rel(0.15)),
-        panel.spacing.x = unit(3, "lines"),
-        strip.text = element_text(
-          size = 10,
-          face = "bold",
-          margin = margin(
-            t = 7.5,
-            r = 0,
-            b = 5.5,
-            l = 0
-          )
-        ),
-        strip.background = element_rect(
-          fill = "gray95",
-          color = "transparent",
-          size = rel(0.75)
-        ),
-        axis.text = element_text(size = 13),
-        axis.title = element_text(size = 14),
 
-        complete = TRUE
-      )
+  ret <- theme_gray(base_size = base_size, base_family = base_family) %+replace%
+
+     # replace elements of theme_gray() with the following:
+    theme(
+
+      # draws outer border
+      plot.background = element_rect(color = outer_border_color,
+                                     fill = NA,
+                                     size = rel(0.8)),
+
+      # margins around panel (space between inner panel and outer border)
+      plot.margin = margin(t = 47.5,
+                           r = 17.5,
+                           b = 17.5,
+                           l = 17.5),
+
+      # draws inner border
+      panel.border = element_rect(colour = inner_border_color,
+                                  fill = NA,
+                                  size = rel(1.20)),
+
+      # inner panel background - the plot area
+      panel.background = element_rect(fill = "white"),
+
+
+      legend.background = element_rect(fill = "transparent",
+                                       colour = NA),
+
+      legend.key = element_rect(fill = "transparent",
+                                colour = NA),
+
+      panel.grid.major = element_line("grey75",
+                                      size = rel(0.4)),
+
+      panel.grid.minor = element_line("grey75",
+                                      size = rel(0.15)),
+
+      panel.spacing.x = unit(3, "lines"),
+
+      strip.text = element_text(
+        size = 10,
+        face = "bold",
+        margin = margin(
+          t = 7.5,
+          r = 0,
+          b = 5.5,
+          l = 0
+        )
+      ),
+
+      strip.background = element_rect(
+        fill = "gray95",
+        color = "transparent",
+        size = rel(0.75)
+      ),
+
+      axis.text = element_text(size = 13),
+
+      axis.title = element_text(size = 14),
+
+      complete = TRUE
+    )
+ret
 
   }
-  ret
+  #-------------------------------------------------------#
+
 }
+
+
 
 #' @rdname theme_pres
 #' @export
-theme_pres <- function (transparent = TRUE, base_size = 14, base_family = "Helvetica") {
+theme_pres <- function (transparent = FALSE, base_size = 14, base_family = "Helvetica") {
 
     if(transparent) {
 
