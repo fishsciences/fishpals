@@ -160,11 +160,11 @@ theme_report <- function(inner_border = TRUE,
 
 #' @rdname theme_pres
 #' @export
-theme_pres <- function (transparent = TRUE) {
+theme_pres <- function (transparent = TRUE, base_size = 14, base_family = "Helvetica") {
 
     if(transparent) {
 
-    theme_minimal(base_size = 14, base_family = "Helvetica") %+replace%
+    theme_minimal(base_size = base_size, base_family = base_family) %+replace%
 
     theme(
       panel.background  = element_blank(),
@@ -197,7 +197,7 @@ theme_pres <- function (transparent = TRUE) {
     )
     } else {
 
-    theme_minimal(base_size = 14, base_family = "Helvetica") %+replace%
+    theme_minimal(base_size = base_size, base_family = base_family) %+replace%
 
     theme(
 
@@ -231,17 +231,50 @@ theme_pres <- function (transparent = TRUE) {
 
 #' @rdname theme_pub
 #' @export
-theme_pub <- function () {
+theme_pub <- function(transparent = TRUE, base_size = 10.5, base_family = "Arial") {
 
-  theme_minimal(base_size=10.5, base_family="Helvetica") %+replace%
-    theme(
-      panel.background  = element_blank(),
-      legend.background = element_rect(fill="transparent", colour=NA),
-      legend.key = element_rect(fill="transparent", colour=NA),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank() ,
-      axis.line = element_line(size = rel(0.7)),
+  if(transparent) {
 
-      complete = TRUE
-    )
+    theme_minimal(base_size = base_size, base_family = base_family) %+replace%
+
+      theme(
+        panel.background  = element_blank(),
+
+        legend.background = element_rect(fill = "transparent",
+                                         colour = NA),
+
+        legend.key = element_rect(fill = "transparent",
+                                  colour = NA),
+
+        panel.grid.major = element_blank(),
+
+        panel.grid.minor = element_blank() ,
+
+        axis.line = element_line(size = rel(0.65)),
+
+        axis.ticks = element_line(size = rel(0.6)),
+
+        complete = TRUE
+      )
+
+  } else {
+
+    theme_minimal(base_size = base_size, base_family = base_family) %+replace%
+
+      theme(
+        panel.background  = element_blank(),
+
+        panel.grid.major = element_blank(),
+
+        panel.grid.minor = element_blank() ,
+
+        axis.line = element_line(size = rel(0.65)),
+
+        axis.ticks = element_line(size = rel(0.6)),
+
+        complete = TRUE
+      )
+
+
+  }
 }
