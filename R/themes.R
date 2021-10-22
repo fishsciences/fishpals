@@ -51,7 +51,7 @@ theme_report <- function(inner_border = TRUE) {
   ret <- theme_foundationfp() %+replace%
     theme(
       panel.border = element_rect(colour = "gray25", size = rel(1.20)),
-      plot.margin = margin(7.5, 7.5, 7.5, 7.5),
+      plot.margin = margin(7.5, 21, 7.5, 7.5),
       legend.background = element_rect(fill = "transparent",
                                        colour = NA),
       legend.key = element_rect(fill = "transparent",
@@ -60,7 +60,7 @@ theme_report <- function(inner_border = TRUE) {
                                       size = rel(0.4)),
       panel.grid.minor = element_line("grey75",
                                       size = rel(0.15)),
-      panel.spacing.x = unit(3, "lines"),
+      panel.spacing.x = unit(2.5, "lines"),
       strip.text = element_text(size = 11,
                                 face = "bold",
                                 margin = margin(t = 7.5, r = 0,
