@@ -28,19 +28,17 @@
 #'
 theme_report <- function(inner_border = TRUE,
                          outer_border = TRUE,
-                         outer_border_lwd = 0.5,
                          outer_border_color = "gray40",
                          inner_border_color = "gray25",
                          base_size = 11,
                          base_family = "Geneva") {
 
-
-  if(inner_border == FALSE) {
-
-    ret <- theme_gray(base_size = base_size, base_family = base_family) %+replace%
+  ret <- theme_gray(base_size = base_size,
+                      base_family = base_family) %+replace%
 
      # replace elements of theme_gray() with the following:
-    theme(
+     theme(
+
 
       # draws outer border
       plot.background = element_rect(color = outer_border_color,
@@ -53,11 +51,14 @@ theme_report <- function(inner_border = TRUE,
                            b = 17.5,
                            l = 17.5),
 
-      # draws inner border
-      panel.border = element_blank(),
+      # inner panel background and border - the plot area, drawn under the data
+      # panel.background = element_rect(fill = "white",
+      #                                 size = 0.35,
+      #                                 color = inner_border_color),
 
-      # inner panel background - the plot area
-      panel.background = element_rect(fill = "white"),
+      panel.border = element_rect(size = 0.35,
+                                  color = inner_border_color,
+                                  fill = NA),
 
 
       legend.background = element_rect(fill = "transparent",
@@ -97,145 +98,36 @@ theme_report <- function(inner_border = TRUE,
 
       complete = TRUE
     )
-ret
+
+ if(!inner_border) {
+
+   ret <- ret  %+replace%
+     theme(
+
+      #inner panel background and border - the plot area, drawn under the data
+      panel.background = element_rect(fill = "white",
+                                      size = NA,
+                                      color = NA),
+
+      axis.ticks = element_blank(),
+
+      panel.border = element_rect(size = NA,
+                                  color = NA,
+                                  fill = NA)
+      )
+
   }
 
-    }  else if(outer_border == FALSE) {
+  if(!outer_border) {
 
-    ret <- theme_gray(base_size = base_size, base_family = base_family) %+replace%
-
-     # replace elements of theme_gray() with the following:
-    theme(
-
+    ret <- ret  %+replace%
       # draws outer border
-      plot.background = element_rect(color = NA,
-                                     fill = NA,
-                                     size = NA),
-
-      # margins around panel (space between inner panel and outer border)
-      plot.margin = margin(t = 47.5,
-                           r = 17.5,
-                           b = 17.5,
-                           l = 17.5),
-
-      # draws inner border
-      panel.border = element_rect(colour = inner_border_color,
-                                  fill = NA,
-                                  size = rel(1.20)),
-
-      # inner panel background - the plot area
-      panel.background = element_rect(fill = "white"),
-
-
-      legend.background = element_rect(fill = "transparent",
-                                       colour = NA),
-
-      legend.key = element_rect(fill = "transparent",
-                                colour = NA),
-
-      panel.grid.major = element_line("grey75",
-                                      size = rel(0.4)),
-
-      panel.grid.minor = element_line("grey75",
-                                      size = rel(0.15)),
-
-      panel.spacing.x = unit(3, "lines"),
-
-      strip.text = element_text(
-        size = 10,
-        face = "bold",
-        margin = margin(
-          t = 7.5,
-          r = 0,
-          b = 5.5,
-          l = 0
-        )
-      ),
-
-      strip.background = element_rect(
-        fill = "gray95",
-        color = "transparent",
-        size = rel(0.75)
-      ),
-
-      axis.text = element_text(size = 13),
-
-      axis.title = element_text(size = 14),
-
-      complete = TRUE
-    )
+      theme(plot.background = element_rect(fill = NA,
+                                           size = NA,
+                                           color = NA))
+      }
 ret
   }
-
-
-  ret <- theme_gray(base_size = base_size, base_family = base_family) %+replace%
-
-     # replace elements of theme_gray() with the following:
-    theme(
-
-      # draws outer border
-      plot.background = element_rect(color = outer_border_color,
-                                     fill = NA,
-                                     size = rel(0.8)),
-
-      # margins around panel (space between inner panel and outer border)
-      plot.margin = margin(t = 47.5,
-                           r = 17.5,
-                           b = 17.5,
-                           l = 17.5),
-
-      # draws inner border
-      panel.border = element_rect(colour = inner_border_color,
-                                  fill = NA,
-                                  size = rel(1.20)),
-
-      # inner panel background - the plot area
-      panel.background = element_rect(fill = "white"),
-
-
-      legend.background = element_rect(fill = "transparent",
-                                       colour = NA),
-
-      legend.key = element_rect(fill = "transparent",
-                                colour = NA),
-
-      panel.grid.major = element_line("grey75",
-                                      size = rel(0.4)),
-
-      panel.grid.minor = element_line("grey75",
-                                      size = rel(0.15)),
-
-      panel.spacing.x = unit(3, "lines"),
-
-      strip.text = element_text(
-        size = 10,
-        face = "bold",
-        margin = margin(
-          t = 7.5,
-          r = 0,
-          b = 5.5,
-          l = 0
-        )
-      ),
-
-      strip.background = element_rect(
-        fill = "gray95",
-        color = "transparent",
-        size = rel(0.75)
-      ),
-
-      axis.text = element_text(size = 13),
-
-      axis.title = element_text(size = 14),
-
-      complete = TRUE
-    )
-ret
-
-  }
-  #-------------------------------------------------------#
-
-}
 
 
 
