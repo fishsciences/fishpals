@@ -43,7 +43,7 @@ theme_report <- function(inner_border = TRUE,
       # draws outer border
       plot.background = element_rect(color = outer_border_color,
                                      fill = NA,
-                                     size = rel(0.8)),
+                                     size = rel(0.9)),
 
       # margins around panel (space between inner panel and outer border)
       plot.margin = margin(t = 47.5,
@@ -51,14 +51,14 @@ theme_report <- function(inner_border = TRUE,
                            b = 17.5,
                            l = 17.5),
 
-      # inner panel background and border - the plot area, drawn under the data
-      # panel.background = element_rect(fill = "white",
-      #                                 size = 0.35,
-      #                                 color = inner_border_color),
+      # inner panel background and border
+      #-------------------------------------------------------#
 
-      panel.border = element_rect(size = 0.35,
+      panel.background = element_rect(fill = "white"), # drawn under the data
+
+      panel.border = element_rect(size = rel(0.8), # drawn over the data; this makes the inner border
                                   color = inner_border_color,
-                                  fill = NA),
+                                  fill = NA), # fill has to be NA otherwise it covers things up
 
 
       legend.background = element_rect(fill = "transparent",
