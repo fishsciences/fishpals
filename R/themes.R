@@ -2,13 +2,13 @@
 #'
 #'@description lightweight ggplot2 themes for Cramer Fish Sciences and fish lovers alike
 #'
+#'@details
 #'\describe{
-#'\item{theme_report}{has gridlines}
-#'\item{theme_pres}{intended for use in presentations. Transparent defaults, larger base_font}
-#'\item{theme_pub}{good template for publications}
+#'\item{theme_report}{good template theme for reports. Default inner panel border and light gridlines}
+#'\item{theme_pres}{intended for use in presentations. Larger default fonts, no gridlines, clean background suited for transparency options}
+#'\item{theme_pub}{good baseline template for publications.  Smaller default fonts, theme suited for black and white.}
 #'}
 #'
-#'@export
 #'@importFrom ggplot2 theme_grey
 #'@examples
 #' library(ggplot2)
@@ -24,7 +24,9 @@
 #'    geom_point(size = 4, alpha = .6) +
 #'    scale_color_fishpals(discrete = FALSE, palette = "genidaqs") +
 #'    theme_pres(base_family = "Megrim")
-#' @export
+#'
+#'@rdname themes
+#'@export
 #'
 theme_report <- function(inner_border = TRUE,
                          outer_border = TRUE,
@@ -131,22 +133,29 @@ ret
 
 
 
-#' @rdname theme_pres
+#' @rdname themes
 #' @export
-theme_pres <- function (transparent = FALSE, base_size = 14, base_family = "Helvetica") {
+theme_pres <- function (transparent = TRUE,
+                        base_size = 14,  # larger default size for presentations
+                        base_family = "Helvetica") {
 
-    if(transparent) {
-
-    theme_minimal(base_size = base_size, base_family = base_family) %+replace%
+    # default: background fill is transparent
+    ret = theme_minimal(base_size = base_size, base_family = base_family) %+replace%
 
     theme(
-      panel.background  = element_blank(),
+      rect = element_rect(fill = "transparent"),
 
-      legend.background = element_rect(fill = "transparent",
-                                       colour = NA),
-
-      legend.key = element_rect(fill = "transparent",
-                                colour = NA),
+      # panel.background  = element_rect(fill = "transparent"),
+      #
+      # panel.border = element_rect(fill = "transparent"),
+      #
+      # plot.background = element_rect(fill = "transparent"),
+      #
+      # legend.background = element_rect(fill = "transparent",
+      #                                  colour = NA),
+      #
+      # legend.key = element_rect(fill = "transparent",
+      #                           colour = NA),
 
       legend.title = element_text(size = rel(0.8)),
 
@@ -168,41 +177,11 @@ theme_pres <- function (transparent = FALSE, base_size = 14, base_family = "Helv
                                       size = rel(0.05)),
       complete = TRUE
     )
-    } else {
-
-    theme_minimal(base_size = base_size, base_family = base_family) %+replace%
-
-    theme(
-
-      legend.key = element_rect(fill = "transparent",
-                                colour = NA),
-
-      legend.title = element_text(size = rel(0.8)),
-
-      plot.title = element_text(size = rel(1.4)),
-
-      axis.title.y = element_text(size = rel(1.2),
-                                  vjust = 1.05,
-                                  angle = 90),
-
-      axis.title.x = element_text(size = rel(1.2),
-                                  hjust = 0.975),
-
-      plot.margin = unit(c(0.75, 0.75, 0.5, 0.75), "cm"),
-
-      panel.grid.major = element_line("grey55",
-                                      size = rel(0.25)),
-
-      panel.grid.minor = element_line("grey60",
-                                      size = rel(0.05)),
-      complete = TRUE
-    )
-
-
-    }
+ret
 }
 
-#' @rdname theme_pub
+
+#' @rdname themes
 #' @export
 theme_pub <- function(transparent = TRUE, base_size = 10.5, base_family = "Arial") {
 
