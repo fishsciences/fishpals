@@ -10,20 +10,6 @@
 #'}
 #'
 #'@importFrom ggplot2 theme_grey
-#'@examples
-#' library(ggplot2)
-#'
-#' extrafont::loadfonts(quiet=TRUE)
-#'
-#' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
-#'   geom_point(size = 4) +
-#'   scale_color_fishpals("genidaqs") +
-#'   theme_report(inner_border = TRUE)
-#'
-#' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Sepal.Length)) +
-#'    geom_point(size = 4, alpha = .6) +
-#'    scale_color_fishpals(discrete = FALSE, palette = "genidaqs") +
-#'    theme_pres(base_family = "Megrim")
 #'
 #'@rdname themes
 #'@export
@@ -33,7 +19,7 @@ theme_report <- function(inner_border = TRUE,
                          outer_border_color = "gray40",
                          inner_border_color = "gray25",
                          base_size = 11,
-                         base_family = "Geneva") {
+                         base_family = "Verdana") {
 
   ret <- theme_gray(base_size = base_size,
                       base_family = base_family) %+replace%

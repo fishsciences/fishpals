@@ -5,4 +5,5 @@ fishpals <- function(palette = "CFS", reverse = FALSE, ...) {
   if (reverse) pal <- rev(pal)
 
   colorRampPalette(pal, ...)
+
 }
