@@ -55,6 +55,10 @@ theme_report <- function(inner_border = TRUE,
       legend.key = element_rect(fill = "transparent",
                                 colour = NA),
 
+      legend.position = "bottom",
+
+      legend.direction = "horizontal",
+
       panel.grid.major = element_line("grey75",
                                       size = rel(0.4)),
 
@@ -80,9 +84,11 @@ theme_report <- function(inner_border = TRUE,
         size = rel(0.75)
       ),
 
-      axis.text = element_text(size = 13),
+      axis.text = element_text(size = 11),
 
-      axis.title = element_text(size = 14),
+      axis.title = element_text(size = 12),
+
+      title = element_text(size = 14),
 
       complete = TRUE
     )
@@ -129,38 +135,61 @@ theme_pres <- function (transparent = TRUE,
     ret = theme_minimal(base_size = base_size, base_family = base_family) %+replace%
 
     theme(
-      rect = element_rect(fill = "transparent"),
+      rect = element_rect(fill = "transparent",
+                          color = NA),
 
-      # panel.background  = element_rect(fill = "transparent"),
-      #
-      # panel.border = element_rect(fill = "transparent"),
-      #
-      # plot.background = element_rect(fill = "transparent"),
-      #
-      # legend.background = element_rect(fill = "transparent",
-      #                                  colour = NA),
-      #
-      # legend.key = element_rect(fill = "transparent",
-      #                           colour = NA),
+      plot.background = element_rect(fill = "transparent"),
+
+      legend.background = element_rect(fill = "transparent",
+                                       colour = NA),
+
+      legend.key = element_rect(fill = "transparent",
+                                colour = NA),
 
       legend.title = element_text(size = rel(0.8)),
 
-      plot.title = element_text(size = rel(1.4)),
+      plot.title = element_text(size = rel(1.4),
+                                margin = margin(0, 0, 10, 0)),
 
       axis.title.y = element_text(size = rel(1.2),
                                   vjust = 1.05,
-                                  angle = 90),
+                                  angle = 90,
+                                  margin = margin(0, 5, 0, 0)),
 
       axis.title.x = element_text(size = rel(1.2),
-                                  hjust = 0.975),
+                                  hjust = 0.975,
+                                  margin = margin(5, 0, 0, 0)),
 
       plot.margin = unit(c(0.75, 0.75, 0.5, 0.75), "cm"),
 
-      panel.grid.major = element_line("grey55",
-                                      size = rel(0.25)),
+      panel.grid.major = element_blank(),
 
-      panel.grid.minor = element_line("grey60",
-                                      size = rel(0.05)),
+      panel.grid.minor = element_blank(),
+
+      panel.spacing.x = unit(4, "lines"),
+
+      strip.text = element_text(
+        size = 10,
+        face = "bold",
+        margin = margin(
+          t = 7.5,
+          r = 0,
+          b = 5.5,
+          l = 0
+        )
+      ),
+
+      panel.background = element_rect(fill = "white"), # drawn under the data
+
+      panel.border = element_rect(size = rel(0.25), # drawn over the data; this makes the inner border
+                                  color = "gray30",
+                                  fill = NA), # fill has to be NA otherwise it covers things up
+
+      strip.background = element_rect(
+        fill = NA,
+        color = "gray30",
+        size = rel(0.25)
+      ),
       complete = TRUE
     )
 ret

@@ -1,5 +1,5 @@
 ---
-title: "fishpals"
+title: "fishpals themes"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{fishpals}
@@ -18,107 +18,122 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(fishpals)
+library(ggplot2)
+
 ```
 
 The `fishpals` package provides fish-derived color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
 
-This vignette presents examples of all the palettes and themes included in the package.  It is organized by theme and chart type.
+This vignette presents examples of all the themes included in the package.  
 
 ## `theme_report()`
 
 This theme is designed to have good properties when knitting to pdf or to Microsoft Word.  These properties include:
 
-1. Default size 10 font, with size 11 for axis titles and size 13 for chart titles.
-2. Border around the plot margins
-3. Default legend position of "bottom"
-4. Close-ish spacing of facets to fit on a vertical page
+1. Default size 11 font, with size 11 for axis titles and size 14 for chart titles.
+2. Default Border around the plot margins and the inner panel.
+3. Close-ish spacing of facets to fit on a vertical page.
+4. Default legend position of bottom, horizontal orientation.
 
 
 ```{r}
 
-ggplot(mtcars) +
-  geom_point(aes(x = disp, y = hp)) +
-  theme_report()
-
-
-ggplot(iris) +
-  geom_bar(aes(x = Species, y = Sepal.Width, fill = Species), stat = "identity") +
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
   theme_report() +
-  scale_fill_fishpals()
-
-ggplot(mtcars) +
-   geom_point(aes(x = disp, y = hp, color = factor(carb) ),
-              size = 2.5) +
-  facet_wrap(~am, scales = "free" ) +
-  scale_color_fishpals("surgewrasse", discrete = TRUE) +
-  theme_report()
+  labs(y = "Miles per gallon",
+       x = "Engine displacement (L)",
+       title = "Highway mpg ~ Engine displacement")
 
 
-ggplot(mtcars) +
-   geom_point(aes(x = disp, y = hp, color = carb ),
-              size = 2.5) +
-  facet_wrap(~am, scales = "free" ) +
-  scale_color_fishpals("surgewrasse", discrete = FALSE) +
-  theme_report()
+ggplot(economics_long, aes(x = date, y = value01)) +
+  geom_line(aes(color = variable),
+             size = 0.5) +
+  theme_report(inner_border = FALSE) +
+  scale_color_fishpals() +
+  guides(color = guide_legend(title = NULL)) +
+  labs(x = "Date",
+       y = "Value index",
+       title = "Scaled economic indices ~ year") 
 
 
-#-------------------------------------------------------#
-# install.packages("ggplot2")
-# load package and data
-options(scipen=999)  # turn-off scientific notation like 1e+48
-theme_set(theme_report())  # pre-set the bw theme.
-data("midwest", package = "ggplot2")
-# midwest <- read.csv("http://goo.gl/G1K41K")  # bkup data source
 
-# Scatterplot
-ggplot(midwest, aes(x=area, y=poptotal)) +
-  geom_point(aes(col=state, size=popdensity)) +
-  geom_smooth(method="loess", se=F) +
-  xlim(c(0, 0.1)) +
-  ylim(c(0, 500000)) +
-  labs(subtitle="Area Vs Population",
-       y="Population",
-       x="Area",
-       title="Scatterplot",
-       caption = "Source: midwest") +
-  scale_color_fishpals("adultchinook")
+ggplot(warpbreaks) +
+   geom_boxplot(aes(x = wool, 
+                    y = breaks, 
+                    color = wool,
+                    fill = wool),
+                alpha = 0.5,
+                width = 0.5,
+                show.legend = FALSE) +
+  facet_wrap(~tension,
+             labeller = labeller(tension = 
+                                   c("L" = "Low",
+                                     "M" = "Medium",
+                                     "H" = "High")
+                              )) +
+  scale_color_fishpals(discrete = TRUE) +
+  scale_fill_fishpals(discrete = TRUE) +
+  theme_report(inner_border = FALSE) +
+  labs(x = "Wool type",
+       y = "Number of breaks",
+       title = "Breaks ~ wool type + tension level")
 
-#-------------------------------------------------------#
 
-data(mpg, package="ggplot2")
 
-mpg_select <- mpg[mpg$manufacturer %in% c("audi", "ford", "honda", "hyundai"), ]
+```
 
-# Scatterplot
+## `theme_pres()`
 
-ggplot(mpg_select, aes(displ, cty)) +
-  labs(subtitle="mpg: Displacement vs City Mileage",
-       title="Bubble chart") +
-  geom_jitter(aes(col=manufacturer, size=hwy)) +
-  geom_smooth(aes(col=manufacturer), method="lm", se=F) +
-  scale_color_fishpals("genidaqs", discrete = TRUE)
+This theme is designed to have good default properties for presentations.  These properties include:
 
-#-------------------------------------------------------#
-# Data Prep
-theme_set(theme_report())
-data("mtcars")  # load data
-mtcars$`car name` <- rownames(mtcars)  # create new column for car names
-mtcars$mpg_z <- round((mtcars$mpg - mean(mtcars$mpg))/sd(mtcars$mpg), 2)  # compute normalized mpg
-mtcars$mpg_type <- ifelse(mtcars$mpg_z < 0, "below", "above")  # above / below avg flag
-mtcars <- mtcars[order(mtcars$mpg_z), ]  # sort
-mtcars$`car name` <- factor(mtcars$`car name`, levels = mtcars$`car name`)  # convert to factor to retain sorted order in plot.
+1. Default size 14 font
+2. Default transparencies for plot.background element_rect()s, which will correspond to a dark theme when you save with ggsave(..., bg = "transparent").
+3. Minimalist design conducive to slide presentations.
+4. Widely-spaced facet panels
 
-# Diverging Barcharts
-ggplot(mtcars, aes(x=`car name`, y=mpg_z, label=mpg_z)) +
-  geom_bar(stat='identity', aes(fill=mpg_type), width=.5)  +
-  scale_fill_fishpals("juvsteel",
+```{r}
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  theme_pres() +
+  labs(y = "Miles per gallon",
+       x = "Engine displacement (L)",
+       title = "Highway mpg ~ Engine displacement")
 
-                    name="Mileage",
-                    labels = c("Above Average",
-                               "Below Average")) +
-  labs(subtitle="Normalised mileage from 'mtcars'",
-       title= "Diverging Bars") +
-  coord_flip()
+
+ggplot(economics_long, aes(x = date, y = value01)) +
+  geom_line(aes(color = variable),
+             size = 0.5) +
+  theme_pres() +
+  scale_color_fishpals() +
+  guides(color = guide_legend(title = NULL)) +
+  labs(x = "Date",
+       y = "Value index",
+       title = "Scaled economic indices ~ year") 
+
+
+
+ggplot(warpbreaks) +
+   geom_boxplot(aes(x = wool, 
+                    y = breaks, 
+                    color = wool,
+                    fill = wool),
+                alpha = 0.5,
+                width = 0.25,
+                show.legend = FALSE) +
+  facet_wrap(~tension,
+             labeller = labeller(tension = 
+                                   c("L" = "Low",
+                                     "M" = "Medium",
+                                     "H" = "High")
+                              ),
+             ncol = 1) +
+  scale_color_fishpals(discrete = TRUE) +
+  scale_fill_fishpals(discrete = TRUE) +
+  theme_pres() +
+  labs(x = "Wool type",
+       y = "Number of breaks",
+       title = "Breaks ~ wool type + tension level")
 
 ```
 
