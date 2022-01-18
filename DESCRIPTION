@@ -20,7 +20,6 @@ Imports:
     grDevices,
     ggplot2,
     magrittr,
-    extrafont
 License: MIT + file LICENSE
 URL: https://github.com/fishsciences/fishpals
 BugReports: https://github.com/fishsciences/fishpals/issues
