@@ -1,18 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-``` r
-library(fishpals)
-library(ggplot2)
-```
-
-# Introduction
-
 The `fishpals` package provides fish-inspired color palettes and some
 lightweight `ggplot` themes that we hope will be especially useful to
 scientists when preparing reports, presentations, and publications.
 
-# 1. Installing and loading `fishpals` into R
+# Installing and loading `fishpals` into R
 
 <br>
 
@@ -25,7 +18,7 @@ devtools::install_github("fishsciences/fishpals", build_vignettes = TRUE)
 library(fishpals)
 ```
 
-# 2. Convenience functions
+# Convenience functions
 
 To see all the palettes included in the `fishpals` package, use
 `getpals()`:
@@ -75,7 +68,7 @@ get_fishpals_cols()
 #>                 "#B6DD18"                 "#12DAF6"                 "#966480"
 ```
 
-# 3. The `scale_*_fishpals()` functions
+# The `scale_*_fishpals()` functions
 
 `fishpals` is designed to integrate with `ggplot2` code, and so provides
 two `ggplot2` scale functions for displaying its custom color palettes.
@@ -134,7 +127,7 @@ ggplot(warpbreaks) +
 
 ![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
-# 4. Lightweight Themes
+# Lightweight Themes
 
 ## `theme_report()`
 
