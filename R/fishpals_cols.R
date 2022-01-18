@@ -20,10 +20,11 @@ fishpals_cols <- c(
 
   # adultchinook
   `chinook red` = "#BA1D57",
-  `chinook olive` =  "#8DAD6E",
+    `chinook blue` = "#0C4FA0" ,
   `chinook dark gray` = "#273535",
-  `chinook blue` = "#0C4FA0" ,
   `chinook pink` = "#EFB0A1",
+    `chinook olive` =  "#8DAD6E",
+
 
   # greensunfish
   `sunfish green` ="#4EC4B8",

@@ -1,29 +1,24 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fishpals: fish color palettes, themes, and scales (ha\!) for plots
+# fishpals <img src="man/figures/fishpals_color.png" align="right" alt="" width="200" />
 
-![](fishpals_color.png)
-
-Heavily influenced by Diane Cook’s `ochre` package and Karthik Ram’s
-`wesanderson` package, this package provides color palettes and some
-lightweight ggplot2 themes. Since Cramer Fish Sciences works mostly with
-North American/northwestern fish species, we’re talking about a lot of
-greens, browns, and grays here. But we did just add a [surge
-wrasse](https://tinyurl.com/y2xljdlp) palette\!
+Fish color palettes, themes, and scales (ha\!) for ggplot2 plots.
 
 ## Usage
 
-``` 
-devtools::install_github('fishsciences/fishpals')
-library(fishpals)
-library(ggplot2)
+``` r
 
-ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
-   geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
-   scale_color_fishpals("greensunfish") +
-   theme_pres()
-   
+    devtools::install_github('fishsciences/fishpals')
+    library(fishpals)
+    library(ggplot2)
+
+    
+    ggplot(iris, aes(Sepal.Width, Sepal.Length)) +
+       geom_point(size = 2.5, aes(color = Species), show.legend = FALSE) +
+       scale_color_fishpals("greensunfish") +
+       theme_pres()
+    
 ```
 
 ![ggplot2\_example](https://raw.githubusercontent.com/fishsciences/fishpals/master/fishphotos/ggplot2_example.jpeg)
@@ -41,7 +36,7 @@ ggplot(iris) +
   scale_fill_fishpals("adultchinook")
 ```
 
-![](README-unnamed-chunk-2-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
 
 ### Examples
 
@@ -57,30 +52,16 @@ ggplot(mtcars) +
               size = 3.5, alpha = 0.75) +
   facet_wrap(~am) +
   scale_color_fishpals("surgewrasse", discrete = TRUE) +
-  theme_report()
+  theme_pres()
 ```
 
-![](README-unnamed-chunk-3-1.png)<!-- -->
-
-``` r
-
-# continuous scale
-ggplot(mtcars) +
-   geom_point(aes(x = disp, y = hp, color = carb ),
-              size = 3.5, alpha = 0.75) +
-  facet_wrap(~am) +
-  scale_color_fishpals("surgewrasse", discrete = FALSE) +
-  theme_report()
-```
-
-![](README-unnamed-chunk-3-2.png)<!-- -->
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 For publications, we’ve set some defaults that journals tend to
 like:
 
 ``` r
-# sample code  odified from: http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
-options(scipen=999)
+# sample code  modified from: http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
 data("midwest", package = "ggplot2")
 
 ggplot(midwest, aes(x=area, y=poptotal)) +
@@ -97,23 +78,25 @@ ggplot(midwest, aes(x=area, y=poptotal)) +
 #> Warning: Removed 15 rows containing missing values (geom_point).
 ```
 
-![](README-unnamed-chunk-4-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
+
+The juvenile steelhead palette with `theme_report()`:
 
 ``` r
-p <- ggplot(mpg, aes(class, hwy))
-p + geom_boxplot(aes(color = class), show.legend = FALSE,
-                 outlier.shape = NA) +
-  geom_jitter(width = 0.2, aes(color = class), alpha = 0.5,
+
+ggplot(mpg, aes(class, hwy)) + 
+  geom_boxplot(aes(color = class), outlier.shape = NA, show.legend = FALSE) +
+  geom_jitter(width = 0.2, alpha = 0.5, aes(color = class), 
               show.legend = FALSE) +
-  scale_color_fishpals("juvsteel") +
+  scale_color_fishpals("juvsteelhead") +
   theme_report()
 ```
 
-![](README-unnamed-chunk-5-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
 
-If you happen to work for us, we also have some built-in “branded” color
-palettes, `genidaqs` and `CFS` (which is the default palette for the
-`scale` functions in `fishpals`):
+Because this package was initially developed for CFS employees, we also
+have some built-in “branded” color palettes, `genidaqs` and `CFS` (which
+is the default palette for the `scale` functions in `fishpals`):
 
 ``` r
 # Histogram on a Continuous (Numeric) Variable
@@ -128,9 +111,10 @@ g + geom_histogram(aes(fill=class),
   theme_report()
 ```
 
-![](README-unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
+
 
 g + geom_histogram(aes(fill=class), 
                    bins=5, 
@@ -142,4 +126,4 @@ g + geom_histogram(aes(fill=class),
 #> which will replace the existing scale.
 ```
 
-![](README-unnamed-chunk-6-2.png)<!-- -->
+![](man/figures/README-unnamed-chunk-7-2.png)<!-- -->

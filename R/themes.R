@@ -48,7 +48,6 @@ theme_report <- function(inner_border = TRUE,
                                   color = inner_border_color,
                                   fill = NA), # fill has to be NA otherwise it covers things up
 
-
       legend.background = element_rect(fill = "transparent",
                                        colour = NA),
 

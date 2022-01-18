@@ -12,19 +12,102 @@ editor_options:
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE
 )
 ```
 
 ```{r setup}
 library(fishpals)
 library(ggplot2)
+```
+
+# Introduction
+
+This vignette presents examples of all the themes included in the package.  
+
+The `fishpals` package provides fish-inspired color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
+
+# 1. Installing and loading `fishpals` into R
+<br>
+
+`fishpals` is a pretty trivial package, so it's unlikely it will ever be submitted to CRAN.  You can install the `fishpals` package using either `devtools::install_github()` or the `install_github` function from the `remotes` package:
+
+```{r, eval=FALSE}
+
+devtools::install_github("fishsciences/fishpals", build_vignettes = TRUE) 
+library(fishpals)
 
 ```
 
-The `fishpals` package provides fish-derived color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
 
-This vignette presents examples of all the themes included in the package.  
+# 2. Convenience functions
+
+To see all the palettes included in the `fishpals` package, use `getpals()`:
+
+```{r}
+getpals()
+
+```
+
+
+To view a particular palette, call it by name with `viewpals()`
+
+```{r}
+viewpals("surgewrasse")
+```
+
+To see a full list of all the colors in each palette, use `get_fishpals_cols()`:
+
+```{r}
+get_fishpals_cols()
+
+```
+
+
+# 3. The `scale_*_fishpals()` functions
+
+`fishpals` is designed to integrate with `ggplot2` code, and so provides two `ggplot2` scale functions for displaying its custom color palettes.  To use them, map a variable to a color aesthetic and call the appropriate scale function: `scale_fill_fishpals()` or `scale_color_fishpals()`:
+
+```{r}
+
+ggplot(warpbreaks) +
+   geom_boxplot(aes(x = wool, 
+                    y = breaks, 
+                    color = wool,
+                    fill = wool),
+                alpha = 0.5,
+                width = 0.5,
+                show.legend = FALSE) +
+  facet_wrap(~tension,
+             labeller = labeller(tension = 
+                                   c("L" = "Low",
+                                     "M" = "Medium",
+                                     "H" = "High")
+                              )) +
+  scale_color_fishpals(discrete = TRUE) +
+  scale_fill_fishpals(discrete = TRUE) +
+  labs(x = "Wool type",
+       y = "Number of breaks",
+       title = "Breaks ~ wool type + tension level")
+
+
+```
+
+The default color palette is "cfs".  To use a different one, just call it by name:
+
+```{r}
+ggplot(warpbreaks, aes(x = wool, y = breaks)) +
+  geom_jitter(aes(color = tension), 
+              size = 2.5, 
+              width = 0.15) +
+  scale_color_fishpals("adultchinook")
+```
+
+
+# 4. Lightweight Themes
 
 ## `theme_report()`
 
@@ -37,15 +120,12 @@ This theme is designed to have good properties when knitting to pdf or to Micros
 
 
 ```{r}
-
 ggplot(mpg) +
   geom_point(aes(x = displ, y = hwy)) +
   theme_report() +
   labs(y = "Miles per gallon",
        x = "Engine displacement (L)",
        title = "Highway mpg ~ Engine displacement")
-
-
 ggplot(economics_long, aes(x = date, y = value01)) +
   geom_line(aes(color = variable),
              size = 0.5) +
@@ -55,9 +135,6 @@ ggplot(economics_long, aes(x = date, y = value01)) +
   labs(x = "Date",
        y = "Value index",
        title = "Scaled economic indices ~ year") 
-
-
-
 ggplot(warpbreaks) +
    geom_boxplot(aes(x = wool, 
                     y = breaks, 
@@ -78,10 +155,8 @@ ggplot(warpbreaks) +
   labs(x = "Wool type",
        y = "Number of breaks",
        title = "Breaks ~ wool type + tension level")
-
-
-
 ```
+
 
 ## `theme_pres()`
 
@@ -134,6 +209,33 @@ ggplot(warpbreaks) +
   labs(x = "Wool type",
        y = "Number of breaks",
        title = "Breaks ~ wool type + tension level")
+```
+
+
+`theme_pub()` has some default font sizes and axis options often used in publications:
+
+```{r}
+
+ggplot(economics_long, aes(x = date, y = value01)) +
+  geom_line(aes(color = variable),
+             size = 0.5) +
+  theme_pub() +
+  scale_color_brewer(palette = 6) + # using color brewer black and white palette for demonstration
+  guides(color = guide_legend(title = NULL)) +
+  labs(x = "Date",
+       y = "Value index",
+       title = "Scaled economic indices ~ year") 
 
 ```
+
+
+
+
+
+
+
+
+
+
+
 
