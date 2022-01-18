@@ -9,7 +9,7 @@ Description: Heavily influenced by Diane Cook's `ochre` package and Karthik Ram'
     that 'Cramer Fish Sciences' ('CFS') has worked with in the past), and some lightweight ggplot2 themes.
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.2
 Suggests: 
     testthat,
     vdiffr,
@@ -20,7 +20,6 @@ Imports:
     grDevices,
     ggplot2,
     magrittr,
-    extrafont
 License: MIT + file LICENSE
 URL: https://github.com/fishsciences/fishpals
 BugReports: https://github.com/fishsciences/fishpals/issues

@@ -1,5 +1,5 @@
 ---
-title: "fishpals"
+title: "fishpals themes"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{fishpals}
@@ -26,8 +26,9 @@ library(ggplot2)
 
 # Introduction
 
-The `fishpals` package provides fish-inspired color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
+This vignette presents examples of all the themes included in the package.  
 
+The `fishpals` package provides fish-inspired color palettes and some lightweight `ggplot` themes that we hope will be especially useful to scientists when preparing reports, presentations, and publications.
 
 # 1. Installing and loading `fishpals` into R
 <br>
@@ -40,8 +41,6 @@ devtools::install_github("fishsciences/fishpals", build_vignettes = TRUE)
 library(fishpals)
 
 ```
-
-
 
 
 # 2. Convenience functions
@@ -73,77 +72,159 @@ get_fishpals_cols()
 `fishpals` is designed to integrate with `ggplot2` code, and so provides two `ggplot2` scale functions for displaying its custom color palettes.  To use them, map a variable to a color aesthetic and call the appropriate scale function: `scale_fill_fishpals()` or `scale_color_fishpals()`:
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
-  geom_point(aes(color = Species), size = 1.5) +
-  scale_color_fishpals()
+
+ggplot(warpbreaks) +
+   geom_boxplot(aes(x = wool, 
+                    y = breaks, 
+                    color = wool,
+                    fill = wool),
+                alpha = 0.5,
+                width = 0.5,
+                show.legend = FALSE) +
+  facet_wrap(~tension,
+             labeller = labeller(tension = 
+                                   c("L" = "Low",
+                                     "M" = "Medium",
+                                     "H" = "High")
+                              )) +
+  scale_color_fishpals(discrete = TRUE) +
+  scale_fill_fishpals(discrete = TRUE) +
+  labs(x = "Wool type",
+       y = "Number of breaks",
+       title = "Breaks ~ wool type + tension level")
+
 
 ```
 
 The default color palette is "cfs".  To use a different one, just call it by name:
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
-  geom_point(aes(color = Species), size = 1.5) +
+ggplot(warpbreaks, aes(x = wool, y = breaks)) +
+  geom_jitter(aes(color = tension), 
+              size = 2.5, 
+              width = 0.15) +
   scale_color_fishpals("adultchinook")
 ```
 
-Both scales can be called in the same plot:
+
+# 4. Lightweight Themes
+
+## `theme_report()`
+
+This theme is designed to have good properties when knitting to pdf or to Microsoft Word.  These properties include:
+
+1. Default size 11 font, with size 11 for axis titles and size 14 for chart titles.
+2. Default Border around the plot margins and the inner panel.
+3. Close-ish spacing of facets to fit on a vertical page.
+4. Default legend position of bottom, horizontal orientation.
+
 
 ```{r}
-
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
-  geom_boxplot(aes(color = Species, fill = Species), 
-               width = 0.5, 
-               alpha = 0.5) +
-  scale_fill_fishpals() +
-  scale_color_fishpals()
-
-```
-
-
-By default, the `discrete` parameter is set to TRUE, that is, the colors will be discrete until the number of colors required exceeds the available base colors in the plot (typically 5 or 6).  If your variable requires more colors than that, a continuous palette can be generated from the base pallette by setting `discrete = FALSE`:
-
-```{r}
-
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
-  geom_point(aes(color = Petal.Length)) +
-  scale_color_fishpals("genidaqs", discrete = FALSE)
-
-```
-
-
-# 4. The `theme_*()` functions
-
-`fishpals` comes with three themes: `theme_report()`, `theme_pres()`, and `theme_pub()`.  These themes are designed to suppor the three formats that scientists typically use for communication (reports, presentations, and publications).  
-
-`theme_report()` has defaults that translate well to written reports and knitting to Word documents.  It has some additional optional arguments that allow for showing or hiding a border around the plot panel.
-
-```{r}
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
-  geom_point(aes(color = Species), size = 1.5) +
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  theme_report() +
+  labs(y = "Miles per gallon",
+       x = "Engine displacement (L)",
+       title = "Highway mpg ~ Engine displacement")
+ggplot(economics_long, aes(x = date, y = value01)) +
+  geom_line(aes(color = variable),
+             size = 0.5) +
+  theme_report(inner_border = FALSE) +
   scale_color_fishpals() +
-  theme_report(inner_border = TRUE)
+  guides(color = guide_legend(title = NULL)) +
+  labs(x = "Date",
+       y = "Value index",
+       title = "Scaled economic indices ~ year") 
+ggplot(warpbreaks) +
+   geom_boxplot(aes(x = wool, 
+                    y = breaks, 
+                    color = wool,
+                    fill = wool),
+                alpha = 0.5,
+                width = 0.5,
+                show.legend = FALSE) +
+  facet_wrap(~tension,
+             labeller = labeller(tension = 
+                                   c("L" = "Low",
+                                     "M" = "Medium",
+                                     "H" = "High")
+                              )) +
+  scale_color_fishpals(discrete = TRUE) +
+  scale_fill_fishpals(discrete = TRUE) +
+  theme_report(inner_border = FALSE) +
+  labs(x = "Wool type",
+       y = "Number of breaks",
+       title = "Breaks ~ wool type + tension level")
 ```
 
 
-`theme_pres()` has defaults that should help you out when you have to `ggsave()` a plot for a presentation - larger default fonts, etc.  I'm working on a dark presentation theme, stay posted.
+## `theme_pres()`
+
+This theme is designed to have good default properties for presentations.  These properties include:
+
+1. Default size 14 font
+2. Default transparencies for plot.background element_rect()s, which will correspond to a dark theme when you save with ggsave(..., bg = "transparent").
+3. Minimalist design conducive to slide presentations.
+4. Widely-spaced facet panels
 
 ```{r}
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
-  geom_point(aes(color = Species), size = 1.5) +
-  scale_color_fishpals("juvsteelhead") +
-  theme_pres()
+ggplot(mpg) +
+  geom_point(aes(x = displ, y = hwy)) +
+  theme_pres() +
+  labs(y = "Miles per gallon",
+       x = "Engine displacement (L)",
+       title = "Highway mpg ~ Engine displacement")
 
+
+ggplot(economics_long, aes(x = date, y = value01)) +
+  geom_line(aes(color = variable),
+             size = 0.5) +
+  theme_pres() +
+  scale_color_fishpals() +
+  guides(color = guide_legend(title = NULL)) +
+  labs(x = "Date",
+       y = "Value index",
+       title = "Scaled economic indices ~ year") 
+
+
+
+ggplot(warpbreaks) +
+   geom_boxplot(aes(x = wool, 
+                    y = breaks, 
+                    color = wool,
+                    fill = wool),
+                alpha = 0.5,
+                width = 0.25,
+                show.legend = FALSE) +
+  facet_wrap(~tension,
+             labeller = labeller(tension = 
+                                   c("L" = "Low",
+                                     "M" = "Medium",
+                                     "H" = "High")
+                              ),
+             ncol = 1) +
+  scale_color_fishpals(discrete = TRUE) +
+  scale_fill_fishpals(discrete = TRUE) +
+  theme_pres() +
+  labs(x = "Wool type",
+       y = "Number of breaks",
+       title = "Breaks ~ wool type + tension level")
 ```
 
-`theme_pub()` has some default options often used in publications:
+
+`theme_pub()` has some default font sizes and axis options often used in publications:
 
 ```{r}
 
-ggplot(iris, aes(x = Sepal.Length, y = Petal.Width)) +
-  geom_point(aes(color = Species), size = 1.5) +
-  scale_color_fishpals("adultsteelhead") +
-  theme_pub()
+ggplot(economics_long, aes(x = date, y = value01)) +
+  geom_line(aes(color = variable),
+             size = 0.5) +
+  theme_pub() +
+  scale_color_brewer(palette = 6) + # using color brewer black and white palette for demonstration
+  guides(color = guide_legend(title = NULL)) +
+  labs(x = "Date",
+       y = "Value index",
+       title = "Scaled economic indices ~ year") 
 
 ```
 

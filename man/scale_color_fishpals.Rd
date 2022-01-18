@@ -6,14 +6,11 @@
 \alias{scale_fill_fishpals}
 \title{Fishpals scale functions for use in ggplot2 plots}
 \usage{
-scale_color_fishpals(palette = "cfs", discrete = TRUE,
-  reverse = FALSE, ...)
+scale_color_fishpals(palette = "cfs", discrete = TRUE, reverse = FALSE, ...)
 
-scale_colour_fishpals(palette = "cfs", discrete = TRUE,
-  reverse = FALSE, ...)
+scale_colour_fishpals(palette = "cfs", discrete = TRUE, reverse = FALSE, ...)
 
-scale_fill_fishpals(palette = "cfs", discrete = TRUE,
-  reverse = FALSE, ...)
+scale_fill_fishpals(palette = "cfs", discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Choose from \code{fishpals_pals} list}
