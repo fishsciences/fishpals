@@ -30,7 +30,7 @@ theme_report <- function(inner_border = TRUE,
 
       # draws outer border
       plot.background = element_rect(color = outer_border_color,
-                                     fill = NA,
+                                     fill = "white",
                                      size = rel(0.9)),
 
       # margins around panel (space between inner panel and outer border)
