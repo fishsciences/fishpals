@@ -5,7 +5,7 @@
 ^pkgdown$
 ^doc$
 ^Meta$
-*\.png
+fishpals_color.png
 appveyor.yml
 codecov.yml
 README.Rmd
