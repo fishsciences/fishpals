@@ -2,21 +2,24 @@
 % Please edit documentation in R/viewpals.R
 \name{viewpals}
 \alias{viewpals}
-\title{Show colors associated with a palette - adapted from the [`scales` package](https://cran.r-project.org/web/packages/scales/index.html) for use with fishpals}
+\title{Display colors associated with a palette}
 \usage{
-viewpals(fishpal, labels=TRUE, borders = NULL, cex_label = 1)
+viewpals(fishpal = "cfs", labels = TRUE, borders = NULL, cex_label = 0.75)
 }
 \arguments{
-\item{fishpal}{a string matching one of the fishpals color palettes (see fishpals::fish_pals for the full list); default is "CFS"}
+\item{fishpal}{a string matching one of the \code{fishpals} color palettes (see \code{fishpals::fish_pals} for the full list).  The default is "cfs"}
 
 \item{labels}{boolean, whether to show the hexadecimal representation of the colours in each tile}
 
-\item{borders}{colour of the borders of the tiles; matches the border argument of `graphics::rect()`. The default means par("fg"). Use border = NA to omit borders.}
+\item{borders}{color of the borders of the tiles; matches the border argument of \code{graphics::rect()}. The default means par("fg"). Use border = NA to omit borders.}
 
-\item{cex_label}{size of printed labels, works the same as cex parameter of plot()}
+\item{cex_label}{size of printed labels, works the same as \code{cex} parameter of plot()}
 }
 \description{
-A quick and dirty way to view fishpalettes
+A quick way to view \code{fishpals}' color palettes
+}
+\details{
+Adapted from the \code{scales} package (\url{https://cran.r-project.org/web/packages/scales/index.html}) for use with fishpals
 }
 \examples{
 viewpals("genidaqs")

@@ -12,12 +12,27 @@ theme_report(
   outer_border_color = "gray40",
   inner_border_color = "gray25",
   base_size = 11,
-  base_family = "Verdana"
+  base_family = "Helvetica"
 )
 
 theme_pres(transparent = TRUE, base_size = 14, base_family = "Helvetica")
 
-theme_pub(transparent = TRUE, base_size = 10.5, base_family = "Arial")
+theme_pub(transparent = TRUE, base_size = 10.5, base_family = "Helvetica")
+}
+\arguments{
+\item{inner_border}{Logical controlling the border around the inner panel.}
+
+\item{outer_border}{Logical controlling the border around the plot object.}
+
+\item{outer_border_color}{Accepts a character string for the color of the outer plot border}
+
+\item{inner_border_color}{Accepts a character string for the color of the inner panel border}
+
+\item{base_size}{the default font size for the plot}
+
+\item{base_family}{Accepts a character string for the name of the font family to be used on the plot - only specify fonts which are installed on your system.}
+
+\item{transparent}{Logical controlling whether the panel and plot background of the plot should be transparent when saved to a png}
 }
 \description{
 lightweight ggplot2 themes for Cramer Fish Sciences and fish lovers alike
@@ -28,4 +43,16 @@ lightweight ggplot2 themes for Cramer Fish Sciences and fish lovers alike
 \item{theme_pres}{intended for use in presentations. Larger default fonts, no gridlines, clean background suited for transparency options}
 \item{theme_pub}{good baseline template for publications.  Smaller default fonts, theme suited for black and white.}
 }
+}
+\examples{
+library(ggplot2)
+ggplot(mpg) +
+ geom_point(aes(x = displ, y = hwy)) +
+ theme_pres()
+ggplot(mpg) +
+ geom_point(aes(x = displ, y = hwy)) +
+ theme_report()
+ggplot(mpg) +
+ geom_point(aes(x = displ, y = hwy)) +
+ theme_pub()
 }

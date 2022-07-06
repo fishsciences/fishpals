@@ -1,25 +1,27 @@
 Package: fishpals
 Type: Package
-Title: Fish Color Palettes, Scales (ha!), and Themes for Plots
-Version: 0.2.0
-Author: Myfanwy Johnston, Bob Rudis
+Title: Fish Color Palettes, Scales (Ha!), and Themes for Plots
+Version: 0.2.1
+Authors@R: c(person(given = "Myfanwy", 
+                    family = "Johnston",
+		                role = c("aut", "cre"),
+		                email = "myfanwy.johnston@fishsciences.net"),
+		         person(given = "Bob",
+		                family = "Rudis",
+		                role = "ctb"))
 Maintainer: Myfanwy Johnston <myfanwy.johnston@fishsciences.net>
 Description: Heavily influenced by Diane Cook's `ochre` package and Karthik Ram's `wesanderson` package, this package
     provides species-specific color palettes (generated from pictures of fish 
     that 'Cramer Fish Sciences' ('CFS') has worked with in the past), and some lightweight ggplot2 themes.
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Suggests: 
-    testthat,
-    vdiffr,
-    covr,
-    knitr,
-    rmarkdown
+  testthat,
+  knitr
 Imports: 
-    grDevices,
     ggplot2,
-    magrittr,
+    grDevices
 License: MIT + file LICENSE
 URL: https://github.com/fishsciences/fishpals
 BugReports: https://github.com/fishsciences/fishpals/issues

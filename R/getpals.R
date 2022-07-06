@@ -9,5 +9,5 @@
 
 getpals <- function() {
 
-  sort(names(fishpals:::fishpals_pals))
+  sort(names(fishpals_pals))
 }

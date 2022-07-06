@@ -1,6 +1,9 @@
 ---
-title: "fishpals themes"
-output: rmarkdown::html_vignette
+title: "fishpals"
+output: 
+  rmarkdown::html_vignette:
+    fig_width: 7
+    fig_height: 4.5
 vignette: >
   %\VignetteIndexEntry{fishpals}
   %\VignetteEncoding{UTF-8}
@@ -33,7 +36,7 @@ The `fishpals` package provides fish-inspired color palettes and some lightweigh
 # 1. Installing and loading `fishpals` into R
 <br>
 
-`fishpals` is a pretty trivial package, so it's unlikely it will ever be submitted to CRAN.  You can install the `fishpals` package using either `devtools::install_github()` or the `install_github` function from the `remotes` package:
+`fishpals` is a pretty trivial package, so it's unlikely it will ever be submitted to CRAN.  You can install the `fishpals` package using the `install_github` function from either the `remotes` or `devtools` packages:
 
 ```{r, eval=FALSE}
 
@@ -126,15 +129,17 @@ ggplot(mpg) +
   labs(y = "Miles per gallon",
        x = "Engine displacement (L)",
        title = "Highway mpg ~ Engine displacement")
+
 ggplot(economics_long, aes(x = date, y = value01)) +
   geom_line(aes(color = variable),
              size = 0.5) +
-  theme_report(inner_border = FALSE) +
+  theme_report() +
   scale_color_fishpals() +
   guides(color = guide_legend(title = NULL)) +
   labs(x = "Date",
        y = "Value index",
        title = "Scaled economic indices ~ year") 
+
 ggplot(warpbreaks) +
    geom_boxplot(aes(x = wool, 
                     y = breaks, 
@@ -155,6 +160,7 @@ ggplot(warpbreaks) +
   labs(x = "Wool type",
        y = "Number of breaks",
        title = "Breaks ~ wool type + tension level")
+
 ```
 
 
@@ -168,6 +174,7 @@ This theme is designed to have good default properties for presentations.  These
 4. Widely-spaced facet panels
 
 ```{r}
+
 ggplot(mpg) +
   geom_point(aes(x = displ, y = hwy)) +
   theme_pres() +
@@ -209,6 +216,7 @@ ggplot(warpbreaks) +
   labs(x = "Wool type",
        y = "Number of breaks",
        title = "Breaks ~ wool type + tension level")
+
 ```
 
 
@@ -224,7 +232,8 @@ ggplot(economics_long, aes(x = date, y = value01)) +
   guides(color = guide_legend(title = NULL)) +
   labs(x = "Date",
        y = "Value index",
-       title = "Scaled economic indices ~ year") 
+       title = "Scaled economic indices ~ year") +
+  theme(legend.position = "bottom")
 
 ```
 

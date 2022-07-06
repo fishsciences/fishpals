@@ -1,19 +1,22 @@
-#' Show colors associated with a palette - adapted from the [`scales` package](https://cran.r-project.org/web/packages/scales/index.html) for use with fishpals
+#' Display colors associated with a palette 
+#' 
+#' @details Adapted from the \code{scales} package (\url{https://cran.r-project.org/web/packages/scales/index.html}) for use with fishpals
 #'
-#' @description A quick and dirty way to view fishpalettes
-#' @usage
-#' viewpals(fishpal, labels=TRUE, borders = NULL, cex_label = 1)
-#' @param fishpal a string matching one of the fishpals color palettes (see fishpals::fish_pals for the full list); default is "CFS"
+#' @description A quick way to view \code{fishpals}' color palettes
+#' @param fishpal a string matching one of the \code{fishpals} color palettes (see \code{fishpals::fish_pals} for the full list).  The default is "cfs"
 #' @param labels boolean, whether to show the hexadecimal representation of the colours in each tile
-#' @param borders colour of the borders of the tiles; matches the border argument of `graphics::rect()`. The default means par("fg"). Use border = NA to omit borders.
-#' @param cex_label size of printed labels, works the same as cex parameter of plot()
+#' @param borders color of the borders of the tiles; matches the border argument of \code{graphics::rect()}. The default means par("fg"). Use border = NA to omit borders.
+#' @param cex_label size of printed labels, works the same as \code{cex} parameter of plot()
 #' @export
 #' @examples
 #' viewpals("genidaqs")
 #' viewpals("adultchinook")
-viewpals <- function(fishpal="cfs", labels = TRUE, borders = NULL, cex_label = 0.75)
+viewpals <- function(fishpal="cfs", 
+                     labels = TRUE, 
+                     borders = NULL, 
+                     cex_label = 0.75)
 {
-    colours <- as.character(fishpals:::fishpals_pals[[fishpal]])
+    colours <- as.character(fishpals_pals[[fishpal]])
     n <- length(colours)
     ncol <- ceiling(sqrt(n))
     nrow <- ceiling(n/ncol)

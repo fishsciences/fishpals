@@ -26,7 +26,6 @@ Fishpals scale functions for use in ggplot2 plots
 }
 \examples{
 library(ggplot2)
-extrafont::loadfonts(quiet=TRUE)
 ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
  geom_point(size = 4) +
  scale_color_fishpals("genidaqs")

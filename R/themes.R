@@ -8,18 +8,36 @@
 #'\item{theme_pres}{intended for use in presentations. Larger default fonts, no gridlines, clean background suited for transparency options}
 #'\item{theme_pub}{good baseline template for publications.  Smaller default fonts, theme suited for black and white.}
 #'}
+#'@param inner_border Logical controlling the border around the inner panel.
+#'@param outer_border Logical controlling the border around the plot object.
+#'@param outer_border_color Accepts a character string for the color of the outer plot border
+#'@param inner_border_color Accepts a character string for the color of the inner panel border
+#'@param base_size the default font size for the plot
+#'@param base_family Accepts a character string for the name of the font family to be used on the plot - only specify fonts which are installed on your system.
+
+#'@param transparent Logical controlling whether the panel and plot background of the plot should be transparent when saved to a png
 #'
-#'@importFrom ggplot2 theme_grey
+#'@import ggplot2
 #'
 #'@rdname themes
 #'@export
-#'
+#'@examples
+#'library(ggplot2)
+#'ggplot(mpg) +
+#'  geom_point(aes(x = displ, y = hwy)) +
+#'  theme_pres()
+#'ggplot(mpg) +
+#'  geom_point(aes(x = displ, y = hwy)) +
+#'  theme_report()
+#'ggplot(mpg) +
+#'  geom_point(aes(x = displ, y = hwy)) +
+#'  theme_pub()
 theme_report <- function(inner_border = TRUE,
                          outer_border = TRUE,
                          outer_border_color = "gray40",
                          inner_border_color = "gray25",
                          base_size = 11,
-                         base_family = "Verdana") {
+                         base_family = "Helvetica") {
 
   ret <- theme_gray(base_size = base_size,
                       base_family = base_family) %+replace%
@@ -126,7 +144,7 @@ ret
 
 #' @rdname themes
 #' @export
-theme_pres <- function (transparent = TRUE,
+theme_pres <- function(transparent = TRUE,
                         base_size = 14,  # larger default size for presentations
                         base_family = "Helvetica") {
 
@@ -197,7 +215,9 @@ ret
 
 #' @rdname themes
 #' @export
-theme_pub <- function(transparent = TRUE, base_size = 10.5, base_family = "Arial") {
+theme_pub <- function(transparent = TRUE, 
+                      base_size = 10.5, 
+                      base_family = "Helvetica") {
 
   if(transparent) {
 

@@ -7,14 +7,16 @@
 #' @param ... arguments passed on to `ggplot2::discrete_scale()`
 #'
 #' @export
+#' @import ggplot2
 #' @examples
 #' library(ggplot2)
-#' extrafont::loadfonts(quiet=TRUE)
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 #'  geom_point(size = 4) +
 #'  scale_color_fishpals("genidaqs")
 
-scale_color_fishpals <- function(palette = "cfs", discrete = TRUE, reverse = FALSE, ...) {
+scale_color_fishpals <- function(palette = "cfs", 
+                                 discrete = TRUE, 
+                                 reverse = FALSE, ...) {
 
   pal <- fishpals(palette = palette, reverse = reverse)
 
@@ -37,7 +39,9 @@ scale_colour_fishpals <- scale_color_fishpals
 #' ggplot(iris, aes(Sepal.Width, Sepal.Length, color = Species)) +
 #' geom_bar(stat = "identity") +
 #' scale_fill_fishpals()
-scale_fill_fishpals <- function(palette = "cfs", discrete = TRUE, reverse = FALSE, ...) {
+scale_fill_fishpals <- function(palette = "cfs", 
+                                discrete = TRUE, 
+                                reverse = FALSE, ...) {
 
   pal <- fishpals(palette = palette, reverse = reverse)
 

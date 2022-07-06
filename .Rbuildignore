@@ -3,3 +3,10 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^doc$
+^Meta$
+*\.png
+appveyor.yml
+codecov.yml
+README.Rmd
+fishphotos
